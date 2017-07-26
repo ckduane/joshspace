@@ -18,3 +18,5 @@ band = Band.create!({
   record_label: "Circle K",
   type_of_label: "indie"
   })
+
+comments = Band.comments.create!({})

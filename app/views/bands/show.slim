@@ -1,9 +1,9 @@
-h2= @band.name
-h3= @band.genre
+h2 @band.name
+h3 @band.genre
 img[src= "#{@band.photo}"]
-h3= @band.location
-h3= @band.profile_views
-h3= @band.last_login
+h3 @band.location
+h3 @band.profile_views
+h3 @band.last_login
 
 h4 Contacting #{@band.name}
 p Send message
@@ -22,3 +22,5 @@ p Influences #{@band.influences}
 p Sounds Like #{@band.sounds_like}
 p Record Label #{@band.record_label}
 p Type of Label #{@band.type_of_label}
+
+h3 Comments
