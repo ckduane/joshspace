@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
   has_many :comments, as: :commentable
-  belongs_to :page
+  belongs_to :band
 end

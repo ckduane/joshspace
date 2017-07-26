@@ -1,3 +1,3 @@
 class Friend < ApplicationRecord
-  belongs_to :page
+  belongs_to :band
 end

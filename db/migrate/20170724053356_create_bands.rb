@@ -11,7 +11,9 @@ class CreateBands < ActiveRecord::Migration[5.0]
       t.string  :sounds_like
       t.string  :record_label
       t.string  :type_of_label
-
+      t.integer :profile_views
+      t.string :last_login
+      
       t.timestamps
     end
   end

@@ -1,3 +1,5 @@
 class Band < ApplicationRecord
-  belongs_to :page
+  has_many :comments, as: :commentable
+  has_many :friends
+  has_many :posts
 end

@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 # stuff we added
 gem 'devise'
+gem 'slim'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

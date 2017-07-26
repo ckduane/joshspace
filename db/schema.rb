@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170724054451) do
     t.string   "sounds_like"
     t.string   "record_label"
     t.string   "type_of_label"
+    t.integer  "profile_views"
+    t.string   "last_login"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -33,8 +35,13 @@ ActiveRecord::Schema.define(version: 20170724054451) do
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.string   "username"
+    t.string   "image"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
   end
 
   create_table "friends", force: :cascade do |t|
@@ -44,13 +51,6 @@ ActiveRecord::Schema.define(version: 20170724054451) do
     t.integer  "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "pages", force: :cascade do |t|
-    t.integer  "profile_views"
-    t.string   "last_login"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "posts", force: :cascade do |t|
