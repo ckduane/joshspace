@@ -35,6 +35,7 @@ post = Post.create!({
   title: "Dirty Potato Chips",
   body: "We kettle cook in a premium peanut oil blend for a crunchier, tastier potato chop!",
   band_id: band.id
+  })
 
 friend1 = Friend.create!({
   name: "Quincy",
