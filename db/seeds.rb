@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Band.destroy_all
+Friend.destroy_all
 
 band = Band.create!({
   name: "Dawsons Screamo",
@@ -17,4 +19,11 @@ band = Band.create!({
   sounds_like: "peeing for a really long time after d=having too hamye drinks",
   record_label: "Circle K",
   type_of_label: "indie"
+  })
+
+friends = Friend.create!({
+  name: "Tom",
+  image: "https://img.buzzfeed.com/buzzfeed-static/static/2015-07/24/12/enhanced/webdr06/original-3189-1437757123-3.jpg?downsize=715:*&output-format=auto&output-quality=auto",
+  order: 1,
+  band_id: 1
   })

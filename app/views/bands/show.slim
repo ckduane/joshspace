@@ -1,9 +1,9 @@
-h2= @band.name
-h3= @band.genre
+h2 @band.name
+h3 @band.genre
 img[src= "#{@band.photo}"]
-h3= @band.location
-h3= @band.profile_views
-h3= @band.last_login
+h3 @band.location
+h3 @band.profile_views
+h3 @band.last_login
 
 h4 Contacting #{@band.name}
 p Send message
@@ -22,3 +22,17 @@ p Influences #{@band.influences}
 p Sounds Like #{@band.sounds_like}
 p Record Label #{@band.record_label}
 p Type of Label #{@band.type_of_label}
+
+h3 Friends
+- if has_friends?
+	p hello
+- else
+ img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
+
+/ update friends migration table with band_id
+
+h3 Comments
+- if has_comments?
+	- @band.comments.each do |comment|
+- else
+	p No one has left a comment
