@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Band.destroy_all
 Friend.destroy_all
+Comment.destroy_all
+Post.destroy_all
+
 
 band = Band.create!({
   name: "Dawsons Screamo",
@@ -21,9 +24,68 @@ band = Band.create!({
   type_of_label: "indie"
   })
 
-friends = Friend.create!({
+friend0 = Friend.create!({
   name: "Tom",
   image: "https://img.buzzfeed.com/buzzfeed-static/static/2015-07/24/12/enhanced/webdr06/original-3189-1437757123-3.jpg?downsize=715:*&output-format=auto&output-quality=auto",
   order: 1,
-  band_id: 1
+  band_id: band.id
+  })
+
+
+friend1 = Friend.create!({
+  name: "Quincy",
+  image: "https://s-media-cache-ak0.pinimg.com/originals/2c/52/61/2c5261d5b2abee4a9b6717f192924a0c.jpg",
+  order: 2,
+  band_id: band.id
+})
+
+friend2 = Friend.create!({
+  name: "Abigail",
+  image: "https://s-media-cache-ak0.pinimg.com/originals/5e/d7/2b/5ed72b0c59a6c43d97bd34758a656d85.jpg",
+  order: 3,
+  band_id: band.id
+  })
+
+
+friend3 = Friend.create!({
+  name: "Thelma",
+  image: "http://catcareclinic.net/wp-content/uploads/2016/12/cat_smell_flower.jpg",
+  order: 4,
+  band_id: band.id
+})
+
+friend4 = Friend.create!({
+  name: "Muffin",
+  image: "https://s-media-cache-ak0.pinimg.com/736x/66/8f/3b/668f3bcd5f72099e4ab8ab048ee4bf36--flower-wild-life.jpg",
+  order: 5,
+  band_id: band.id
+})
+
+friend5 = Friend.create!({
+  name: "Bagelwich",
+  image: "http://i.imgur.com/btFRjOf.png",
+  order: 6,
+  band_id: band.id
+})
+
+comment = band.comments.create!({
+  username: "Bagelwich",
+  image: "http://i.imgur.com/btFRjOf.png",
+  body: "Hello. I love your band. Please eat more melons."
+})
+
+commenst = band.comments.create!({
+  username: "Muffin",
+  image: "https://s-media-cache-ak0.pinimg.com/736x/66/8f/3b/668f3bcd5f72099e4ab8ab048ee4bf36--flower-wild-life.jpg",
+  body: "~~~*~*~*~**~*~*~**~*~*~*~*))>><<(("
+})
+
+post = band.posts.create!({
+  title: "How to Tame a Plastic Bag",
+  body: "First and foremost, this is assuming the plastic bag is wild. There is no need to tame a bag picked up from the grocery store. These are domesticated bags who have led peaceful, orderly lives."
+  })
+
+pos2t = band.posts.create!({
+  title: "Enjoying your first brainfreeze",
+  body: "Summertime is filled with the hot sunshine. It burns. It burns your brain."
   })
