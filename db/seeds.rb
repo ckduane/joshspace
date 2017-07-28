@@ -25,5 +25,11 @@ friends = Friend.create!({
   name: "Tom",
   image: "https://img.buzzfeed.com/buzzfeed-static/static/2015-07/24/12/enhanced/webdr06/original-3189-1437757123-3.jpg?downsize=715:*&output-format=auto&output-quality=auto",
   order: 1,
-  band_id: 1
+  band_id: band.id
+  })
+
+post = Post.create!({
+  title: "Dirty Potato Chips",
+  body: "We kettle cook in a premium peanut oil blend for a crunchier, tastier potato chop!",
+  band_id: band.id
   })
