@@ -4,26 +4,31 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @band = Band.find(params[:band_id])
+    @posts = @band.posts.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @band = Band.find(params[:band_id])
   end
 
   # GET /posts/new
   def new
+    @band = Band.find(params[:band_id])
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    @band = Band.find(params[:band_id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
+    @band = Band.find(params[:band_id])
     @post = Post.new(post_params)
 
     respond_to do |format|
@@ -69,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :band_id)
     end
 end
