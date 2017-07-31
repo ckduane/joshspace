@@ -1,11 +1,11 @@
-h2= @band.name
-h3= @band.genre
+h1= @band.name
+h2= @band.genre
 img[src= "#{@band.photo}"]
-h3= @band.location
-h3= @band.profile_views
-h3= @band.last_login
+p= @band.location
+p= @band.profile_views
+p= @band.last_login
 
-h4 Contacting #{@band.name}
+h2 Contacting #{@band.name}
 p Send message
 p Add to Friends
 p Instant Message
@@ -15,15 +15,15 @@ p Add to Favorites
 p Block User
 p Rank User
 
-h2= @band.name
-p Member Since #{@band.member_since}
-/ p Band Members #{@band.band_members}
-p Influences #{@band.influences}
-p Sounds Like #{@band.sounds_like}
-p Record Label #{@band.record_label}
-p Type of Label #{@band.type_of_label}
+h2 #{@band.name} General Info
+h3 Member Since #{@band.member_since}
+/ h3 Band Members #{@band.band_members}
+h3 Influences #{@band.influences}
+h3 Sounds Like #{@band.sounds_like}
+h3 Record Label #{@band.record_label}
+h3 Type of Label #{@band.type_of_label}
 
-h3 Friends
+h2 #{@band.name} Friend Space
 - if has_friends?
 	- @band.friends.each do |friend|
 		= friend.name
@@ -31,9 +31,11 @@ h3 Friends
 - else
  img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
 
-h3 Comments
+h2 #{@band.name}'s Friends Comments
+p Displaying 50 of 34234 comments (View/Edit All Comments)
 - if has_comments?
 	- @band.comments.each do |comment|
+		= comment.created_at.strftime("%m/%m/%Y%l:%M%p")
 		= comment.username
 		img[src= "#{comment.image}"]
 		= comment.body
