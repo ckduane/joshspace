@@ -39,3 +39,10 @@ h3 Comments
 		= comment.body
 - else
 	p No one has left a comment
+
+h3 Posts
+- if has_posts?
+  - @band.posts.each do |post|
+    a[href=band_post_path(post, @band)]= "#{post.created_at} #{post.title}"
+- else
+  p There's nothing here yet
