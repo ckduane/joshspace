@@ -10,4 +10,5 @@ module BandHelper
   def has_posts?
     !@band.posts.empty?
   end
+
 end
