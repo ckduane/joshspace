@@ -1,3 +1,17 @@
-= @songs.links.each do |song|
-  audio[preload="auto" controls="controls"]
-    source[src="#{song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')}" type="audio/mpeg" name="#{song.name}"]
+#nowPlay
+  span#npTitle
+#plwrap
+  #controls
+    = image_tag("stop", id: "stop-btn")
+    = image_tag("prev", id: "prev-btn")
+    = image_tag("pause", id: "pause-btn")
+    = image_tag("play", id: "play-btn")
+    = image_tag("next", id: "next-btn")
+  ul#plList
+    = @songs.links.each do |song|
+      li= song.name
+
+/ audio[preload="auto" controls="controls"]
+  / source[src="#{song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')}" type="audio/mpeg" name="#{song.name}"]
+
+a[href="https://codepen.io/markhillard/pen/Hjcwu?editors=1010", target="_blank"] example
