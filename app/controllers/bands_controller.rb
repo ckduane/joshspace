@@ -2,7 +2,7 @@ class BandsController < ApplicationController
   before_action :find_band, only: [:edit, :update, :destroy]
   def show
     @band = Band.find(params[:id])
-    @songs = get_list("/Test")
+    @songs = get_list(path = "/Test")
   end
 
   def edit

@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   def get_list(folder)
     client = DropboxApi::Client.new
-    result = client.list_folder(folder)
+    result = client.list_shared_links
   end
 end
