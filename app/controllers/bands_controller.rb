@@ -3,6 +3,9 @@ class BandsController < ApplicationController
   def show
     @band = Band.find(params[:id])
     @songs = get_list(path = "/Test")
+    if request.xhr?
+            
+    end
   end
 
   def edit
