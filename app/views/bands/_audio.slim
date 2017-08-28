@@ -1,0 +1,57 @@
+#nowPlay
+  span#npTitle
+#plwrap
+  #controls
+    = image_tag("stop", id: "stop-btn")
+    = image_tag("prev", id: "prev-btn")
+    = image_tag("pause", id: "pause-btn")
+    = image_tag("play", id: "play-btn")
+    = image_tag("next", id: "next-btn")
+  ul#plList
+    = @songs.links.each do |song|
+      li[data-song-name= song.name]
+
+.container
+  .column.center
+    h1
+      | HTML5 Audio Player
+    h6
+      | w/ responsive playlist
+  .column.add-bottom
+    #mainwrap
+      #nowPlay
+        span#npAction.left
+          | Paused...
+        span#npTitle.right
+      #audiowrap
+        #audio0
+          audio#audio1[preload controls="controls"]
+            | Your browser does not support HTML5 Audio!
+        #tracks
+          a#btnPrev
+            | «
+          a#btnNext
+            | »
+      #plwrap
+        ul#plList
+  .column.add-bottom.center
+    p
+      | Created by 
+      a[href="http://www.markhillard.com/"]
+        | mh
+      | . Music by 
+      a[href="http://www.mythium.net/"]
+        | Mythium
+      | .
+    p
+      | Download: 
+      a[href="https://archive.org/download/mythium/mythium_vbr_mp3.zip"]
+        | zip
+      |  / 
+      a[href="https://archive.org/download/mythium/mythium_archive.torrent"]
+        | torrent
+
+/ audio[preload="auto" controls="controls"]
+  / source[src="#{song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')}" type="audio/mpeg" name="#{song.name}"]
+
+a[href="https://codepen.io/markhillard/pen/Hjcwu?editors=1010", target="_blank"] example
