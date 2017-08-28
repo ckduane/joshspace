@@ -20,7 +20,7 @@
 $.ajax({
   url: "/bands/1",
   success: function(data){
-    console.log(data)
+    // console.log(data)
   }
 })
 
@@ -34,48 +34,60 @@ b.setAttribute('data-platform', navigator.platform);
 // HTML5 audio player + playlist controls...
 // Inspiration: http://jonhall.info/how_to/create_a_playlist_for_html5_audio
 // Mythium Archive: https://archive.org/details/mythium/
+
 jQuery(function ($) {
+    var songs = $("#songData").find("li");
+    var tracks= [];
+    $.each(songs, function(i) {
+        tracks[i] = {
+            "track": i+1,
+            "name": this.getAttribute("data-song-name"),
+            "length": "2:54",
+            "url": this.getAttribute("data-song-url")
+        }
+    });
+    console.log(tracks);
     var supportsAudio = !!document.createElement('audio').canPlayType;
     if (supportsAudio) {
         var index = 0,
             playing = false,
             mediaPath = 'https://archive.org/download/mythium/',
-            extension = '',
-            tracks = [{
-                "track": 1,
-                "name": "All This Is - Joe L.'s Studio",
-                "length": "2:46",
-                "file": "JLS_ATI"
-            }, {
-                "track": 2,
-                "name": "The Forsaken - Broadwing Studio (Final Mix)",
-                "length": "8:31",
-                "file": "BS_TF"
-            }, {
-                "track": 3,
-                "name": "All The King's Men - Broadwing Studio (Final Mix)",
-                "length": "5:02",
-                "file": "BS_ATKM"
-            }, {
-                "track": 4,
-                "name": "The Forsaken - Broadwing Studio (First Mix)",
-                "length": "8:32",
-                "file": "BSFM_TF"
-            }, {
-                "track": 5,
-                "name": "All The King's Men - Broadwing Studio (First Mix)",
-                "length": "5:05",
-                "file": "BSFM_ATKM"
-            }, {
-                "track": 6,
-                "name": "All This Is - Alternate Cuts",
-                "length": "2:49",
-                "file": "AC_ATI"
-            }],
+            // tracks = [{
+            //     "track": 1,
+            //     "name": "All This Is - Joe L.'s Studio",
+            //     "length": "2:46",
+            //     "file": "JLS_ATI"
+            // }, {
+            //     "track": 2,
+            //     "name": "The Forsaken - Broadwing Studio (Final Mix)",
+            //     "length": "8:31",
+            //     "file": "BS_TF"
+            // }, {
+            //     "track": 3,
+            //     "name": "All The King's Men - Broadwing Studio (Final Mix)",
+            //     "length": "5:02",
+            //     "file": "BS_ATKM"
+            // }, {
+            //     "track": 4,
+            //     "name": "The Forsaken - Broadwing Studio (First Mix)",
+            //     "length": "8:32",
+            //     "file": "BSFM_TF"
+            // }, {
+            //     "track": 5,
+            //     "name": "All The King's Men - Broadwing Studio (First Mix)",
+            //     "length": "5:05",
+            //     "file": "BSFM_ATKM"
+            // }, {
+            //     "track": 6,
+            //     "name": "All This Is - Alternate Cuts",
+            //     "length": "2:49",
+            //     "file": "AC_ATI"
+            // }],
             buildPlaylist = $.each(tracks, function(key, value) {
                 var trackNumber = value.track,
                     trackName = value.name,
                     trackLength = value.length;
+                console.log(trackName);
                 if (trackNumber.toString().length === 1) {
                     trackNumber = '0' + trackNumber;
                 } else {
@@ -141,13 +153,12 @@ jQuery(function ($) {
                 $('#plList li:eq(' + id + ')').addClass('plSel');
                 npTitle.text(tracks[id].name);
                 index = id;
-                audio.src = mediaPath + tracks[id].file + extension;
+                audio.src = tracks[id].url;
             },
             playTrack = function (id) {
                 loadTrack(id);
                 audio.play();
             };
-        extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
         loadTrack(index);
     }
 });

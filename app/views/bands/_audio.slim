@@ -7,9 +7,10 @@
     = image_tag("pause", id: "pause-btn")
     = image_tag("play", id: "play-btn")
     = image_tag("next", id: "next-btn")
+  ul#songData
+    - @songs.links.each do |song|
+      li[data-song-name=song.name data-song-url=song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')]
   ul#plList
-    = @songs.links.each do |song|
-      li[data-song-name= song.name]
 
 .container
   .column.center
