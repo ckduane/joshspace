@@ -1,21 +1,30 @@
-= render "audio"
+.band-show
+	.band-container
+		.band-info
+			h1= @band.name
+			h2= @band.genre
+			.band-img-container
+				img[class="band-img" src="#{@band.photo}"]
+			.band-status
+				p= @band.location
+				p= @band.profile_views
+				p= @band.last_login
+				
+			h2 Contacting #{@band.name}
+			.contact-info 
+				.contact-left
+					p Send message
+					p Add to Friends
+					p Instant Message
+					p Add to Goup
+				.contact-right
+					p Forward to Friend
+					p Add to Favorites
+					p Block User
+					p Rank User
 
-h1= @band.name
-h2= @band.genre
-img[src= "#{@band.photo}"]
-p= @band.location
-p= @band.profile_views
-p= @band.last_login
-
-h2 Contacting #{@band.name}
-p Send message
-p Add to Friends
-p Instant Message
-p Add to Goup
-p Forward to Friend
-p Add to Favorites
-p Block User
-p Rank User
+	.audio-container
+		= render "audio"
 
 h2 #{@band.name} General Info
 h3 Member Since #{@band.member_since}
@@ -29,7 +38,7 @@ h2 #{@band.name} Friend Space
 - if has_friends?
 	- @band.friends.each do |friend|
 		= friend.name
-		img[src= "#{friend.image}"]
+		img[class="friend-img" src="#{friend.image}"]
 - else
  img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
 

@@ -1,6 +1,16 @@
-// Place all the styles related to the Band controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.band-show {
+	display: flex;
+}
+.band-container {
+	display: flex;
+	flex-direction: column;
+}
+.contact-info{
+	display: flex;
+}
+#songData {
+	display: none;
+}
 #pButton{
   height:60px;
   width: 60px;
@@ -8,5 +18,9 @@
   background-size: 50% 50%;
   background-position: center;
 }
-.play{background: url('../images/play.png') no-repeat;}
-.pause{background: url('../images/pause.png') no-repeat;}
+.play {
+	background: url('../images/play.png') no-repeat;
+}
+.pause {
+	background: url('../images/pause.png') no-repeat;
+}
