@@ -1,17 +1,3 @@
-#nowPlay
-  span#npTitle
-#plwrap
-  #controls
-    = image_tag("stop", id: "stop-btn")
-    
-    = image_tag("pause", id: "pause-btn")
-    = image_tag("play", id: "play-btn")
-    
-  ul#songData
-    - @songs.links.each do |song|
-      li[data-song-name=song.name data-song-url=song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')]
-  ul#plList
-
 .container
   .column.add-bottom
     #mainwrap
@@ -19,6 +5,9 @@
         span#npAction.left
           | Paused...
         span#npTitle.right
+      = image_tag("stop", id: "stop-btn")
+      = image_tag("pause", id: "pause-btn")
+      = image_tag("play", id: "play-btn")
       #audiowrap
         #audio0
           audio#audio1[preload controls="controls"]
@@ -30,5 +19,13 @@
             = image_tag("next", id: "next-btn")
       #plwrap
         ul#plList
+
+#nowPlay
+  span#npTitle
+    
+  ul#songData
+    - @songs.links.each do |song|
+      li[data-song-name=song.name data-song-url=song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')]
+  ul#plList
 
 a[href="https://codepen.io/markhillard/pen/Hjcwu?editors=1010", target="_blank"] example
