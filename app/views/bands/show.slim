@@ -33,6 +33,21 @@ h2 #{@band.name} Friend Space
 - else
  img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
 
+h2 Add a Comment
+= form_for [@band, @comment], url: "#{@band.id}/comments" do |f|
+  = f.label :username
+  = f.text_field :username
+
+  = f.label :body
+  = f.text_field :body
+
+  = f.label :image
+  = f.text_field :image
+  = f.hidden_field :commentable_type, value: "Band"
+  = f.hidden_field :commentable_id, value: @band.id
+
+  = f.submit
+
 h2 #{@band.name}'s Friends Comments
 p Displaying 50 of 34234 comments (View/Edit All Comments)
 - if has_comments?
