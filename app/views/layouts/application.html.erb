@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Blarg</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if @band.css %>
+      <style><%= @band.css %></style>
+    <% end %>
+    <% if @band.javascript %>
+      <script><%= raw @band.javascript %></script>
+    <% end %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %><p/>
     <% end %>

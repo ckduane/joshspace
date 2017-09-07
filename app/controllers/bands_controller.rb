@@ -13,7 +13,7 @@ class BandsController < ApplicationController
   def update
     respond_to do |format|
       if @band.update(band_params)
-        format.html { redirect_to @band, notice: 'Band name was successfully updated. Hi Josh!'}
+        format.html { redirect_to @band, notice: 'Band was successfully updated. Hi Josh!'}
       else
         format.html { render :edit }
       end
@@ -27,6 +27,6 @@ class BandsController < ApplicationController
   end
 
   def band_params
-    params.require(:band).permit(:name, :photo, :genre, :location, :email, :member_since, :influences, :sounds_like, :record_label, :type_of_label, :profile_views, :last_login, :css)
+    params.require(:band).permit(:name, :photo, :genre, :location, :email, :member_since, :influences, :sounds_like, :record_label, :type_of_label, :profile_views, :last_login, :css, :javascript)
   end
 end
