@@ -1,27 +1,23 @@
 .container
-  .column.add-bottom
-    #mainwrap
-      #nowPlay
-        span#npAction.left
-          | Paused...
-        span#npTitle.right
-      = image_tag("stop", id: "stop-btn")
-      = image_tag("pause", id: "pause-btn")
-      = image_tag("play", id: "play-btn")
-      #audiowrap
-        #audio0
-          audio#audio1[preload controls="controls"]
-            | Your browser does not support HTML5 Audio!
-        #tracks
-          a#btnPrev
-            = image_tag("prev", id: "prev-btn")
-          a#btnNext
-            = image_tag("next", id: "next-btn")
-      #plwrap
-        ul#plList
-
-#nowPlay
-  span#npTitle
+  #mainwrap
+    #nowPlay
+      span#npAction.left
+        | Paused...
+      span#npTitle.right
+    = image_tag("stop", id: "stop-btn")
+    = image_tag("pause", id: "pause-btn")
+    = image_tag("play", id: "play-btn")
+    #audiowrap
+      #audio0
+        audio#audio1[preload controls="controls"]
+          | Your browser does not support HTML5 Audio!
+      #tracks
+        a#btnPrev
+          = image_tag("prev", id: "prev-btn")
+        a#btnNext
+          = image_tag("next", id: "next-btn")
+    #plwrap
+      ul#plList
     
   ul#songData
     - @songs.links.each do |song|
