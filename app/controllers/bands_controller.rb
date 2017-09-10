@@ -3,8 +3,11 @@ class BandsController < ApplicationController
   def show
     @band = Band.find(params[:id])
     @songs = get_list(path = "/Test")
-    @comment = Comment.new
+    # @comment = Comment.new
     # @comment[:commentable_id] = @band.id
+    @commentable = @band
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def edit

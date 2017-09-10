@@ -10,3 +10,14 @@
 }
 .play{background: url('../images/play.png') no-repeat;}
 .pause{background: url('../images/pause.png') no-repeat;}
+
+// band edit page
+#band-edit-page {
+  input[type='text'], textarea {
+    padding: 5px;
+    width: 300px;
+  }
+  label {
+    margin-top: 10px;
+  }
+}

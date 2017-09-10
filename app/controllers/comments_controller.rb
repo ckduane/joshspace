@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  # before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :load_commentable
 
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = @commentable.comments
   end
 
   # GET /comments/1
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = @commentable.comments.new
   end
 
   # GET /comments/1/edit
@@ -24,12 +25,18 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @commentable.comments.new(comment_params)
     if @comment.save
-      redirect_to "bands/#{@comment.commentable_id}", notice: 'Comment created'
+      redirect_to @commentable, notice: 'Comment Created'
     else
-      redirect_to @band, notice: 'something went wrong'
+      render :new
     end
+    # @comment = Comment.new(comment_params)
+    # if @comment.save
+    #   redirect_to "bands/#{@comment.commentable_id}", notice: 'Comment created'
+    # else
+    #   redirect_to @band, notice: 'something went wrong'
+    # end
   end
   # def create
   #   @comment = Comment.new(comment_params)
@@ -70,10 +77,14 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
+    def load_commentable
+      resource, id = request.path.split('/')[1,2]
+      @commentable = resource.singularize.classify.constantize.find(id)
     end
+    # Use callbacks to share common setup or constraints between actions.
+    # def set_comment
+    #   @comment = Comment.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
