@@ -73,7 +73,8 @@ main
 			- else
 			  p There's nothing here yet
 
-		h2 #{@band.name} Friend Space
+		.orange-title
+			h2 #{@band.name} Friend Space
 		.friends
 			- if has_friends?
 				- @band.friends.each do |friend|
@@ -81,10 +82,13 @@ main
 						h4.friend-name= friend.name
 						img[class="friend-img" src="#{friend.image}"]
 			- else
-			 img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
+				.band-friend
+					h4 Tom
+					img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
 		.comments
-			h2 #{@band.name}'s Friends Comments
-			p Displaying 50 of 34234 comments (View/Edit All Comments)
+			.orange-title
+				h2 #{@band.name}'s Friends Comments
+			b Displaying 50 of 34234 comments (View/Edit All Comments)
 			- if has_comments?
 				table
 					- @band.comments.each do |comment|

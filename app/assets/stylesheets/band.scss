@@ -1,8 +1,9 @@
-$darkest-blue: rgb(102, 153, 204);
+$dark-blue: rgb(102, 153, 204);
 $medium-blue: #b1d0f0;
 $light-blue: rgb(213, 232, 251);
 $link-blue: #003399;
 
+$dark-orange: #f60;
 $orange: #FF9933;
 $light-orange: #F9D6B4;
 
@@ -53,13 +54,19 @@ main {
 }
 // Tables
 .blue-title {
-	background: $darkest-blue;
+	background: $dark-blue;
 }
 .blue-table-title {
 	background-color: $medium-blue;
 }
 .blue-table-content {
 	background-color: $light-blue;
+}
+.orange-title {
+	background: $light-orange;
+	h2 {
+		color: $dark-orange;
+	}
 }
 .orange-table-title {
 	background: $orange;
@@ -70,7 +77,7 @@ main {
 
 
 .contact-info, .general-info {
-	border: 0.2rem solid $darkest-blue;
+	border: 0.2rem solid $dark-blue;
 }
 .contact-info {
 	width: 30rem;
