@@ -1,6 +1,91 @@
-// Place all the styles related to the Band controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$dark-blue: rgb(102, 153, 204);
+$medium-blue: #b1d0f0;
+$light-blue: rgb(213, 232, 251);
+$link-blue: #003399;
+
+$dark-orange: #f60;
+$orange: #FF9933;
+$light-orange: #F9D6B4;
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: verdana,arial,sans-serif,helvetica;
+  font-size: 8pt;
+}
+h1, h2, h3, td {
+	margin: 0 !important;
+  padding: 0 !important;
+}
+h1 {
+	font-size: 12pt;
+}
+h2 {
+	color: white;
+	font-size: 9pt;
+	font-weight: bold;
+	margin: 0;
+	padding: 0.1rem 1rem 0rem;
+}
+h3 {
+	color: #369;
+	font-size: 8pt;
+}
+h4, a {
+	color: $link-blue;
+}
+main {
+	display: flex;
+}
+.left-container {
+	padding-right: 1.5rem;
+	width: 30rem;
+}
+.right-container {
+	width: 45.04rem
+}
+.band-show {
+	display: flex;
+}
+.band-container {
+	display: flex;
+	flex-direction: column;
+}
+// Tables
+.blue-title {
+	background: $dark-blue;
+}
+.blue-table-title {
+	background-color: $medium-blue;
+}
+.blue-table-content {
+	background-color: $light-blue;
+}
+.orange-title {
+	background: $light-orange;
+	h2 {
+		color: $dark-orange;
+	}
+}
+.orange-table-title {
+	background: $orange;
+}
+.orange-table-content {
+	background: $light-orange;
+} 
+
+
+.contact-info, .general-info {
+	border: 0.2rem solid $dark-blue;
+}
+.contact-info {
+	width: 30rem;
+}
+// Audio Player
+#songData {
+	display: none;
+}
 #pButton{
   height:60px;
   width: 60px;
@@ -8,8 +93,6 @@
   background-size: 50% 50%;
   background-position: center;
 }
-.play{background: url('../images/play.png') no-repeat;}
-.pause{background: url('../images/pause.png') no-repeat;}
 
 // band edit page
 #band-edit-page {
@@ -20,4 +103,30 @@
   label {
     margin-top: 10px;
   }
+}
+.play {
+	background: url('../images/play.png') no-repeat;
+}
+.pause {
+	background: url('../images/pause.png') no-repeat;
+}
+
+// Blog
+.blog-post {
+	display: block;
+}
+
+// Friends
+.friends {
+	display: flex;
+}
+.friend-img {
+	max-height: 12rem;
+	max-width: 9rem;
+}
+
+// Comments
+.comment-image {
+	max-height: 10rem;
+	max-width: 10rem;
 }
