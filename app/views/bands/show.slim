@@ -1,70 +1,99 @@
-.band-show
-	.band-container
-		.band-info
-			h1= @band.name
-			h2= @band.genre
-			.band-img-container
-				img[class="band-img" src="#{@band.photo}"]
-			.band-status
-				p= @band.location
-				p= @band.profile_views
-				p= @band.last_login
-				
-			.contact-info-title
-				h2 Contacting #{@band.name}
-			.contact-info 
-				.contact-left
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/sendMailIcon.gif']
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFriendIcon.gif']
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/messagefriend.gif']
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_add_to_group.gif']
-				.contact-right
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/forwardMailIcon.gif']
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFavoritesIcon.gif']
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/blockuser.gif']
-					img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_rank_user4.gif']
+main
+	.left-container
+		.band-show
+			.band-container
+				h1= @band.name
+				b= @band.genre
+				.band-info
+					.band-img-container
+						img[class="band-img" src="#{@band.photo}"]
+					.band-status
+						p= @band.location
+						p= @band.profile_views
+						p= @band.last_login
+						
+					.contact-info.blue-title
+						h2 Contacting #{@band.name}
+					table.contact-info
+						tr
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/sendMailIcon.gif']
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/forwardMailIcon.gif']
+						tr
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFriendIcon.gif']
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFavoritesIcon.gif']
+								
+						tr
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/messagefriend.gif']
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/blockuser.gif']
+						tr
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_add_to_group.gif']
+							td
+								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_rank_user4.gif']
 
-	.audio-container
-		= render "audio"
+		.blue-title
+			h2 #{@band.name} General Info
+		table.general-info
+			tr
+				td.blue-table-title
+					h3 Member Since
+				td.blue-table-content #{@band.member_since}
+			/ h3 Band Members #{@band.band_members}
+			tr
+				td.blue-table-title
+					h3 Influences
+				td.blue-table-content #{@band.influences}
+			tr
+				td.blue-table-title
+					h3 Sounds Like
+				td.blue-table-content #{@band.sounds_like}
+			tr
+				td.blue-table-title
+					h3 Record Label
+				td.blue-table-content #{@band.record_label}
+			tr
+				td.blue-table-title
+					h3 Type of Label
+				td.blue-table-content #{@band.type_of_label}
 
-.band-general-info
-	h2 #{@band.name} General Info
-	h3 Member Since #{@band.member_since}
-	/ h3 Band Members #{@band.band_members}
-	h3 Influences #{@band.influences}
-	h3 Sounds Like #{@band.sounds_like}
-	h3 Record Label #{@band.record_label}
-	h3 Type of Label #{@band.type_of_label}
+	.right-container
+		.audio-container
+				= render "audio"
+		.blog
+			h3 Posts
+			- if has_posts?
+			  - @band.posts.each do |post|
+			    a[href=band_post_path(post, @band) class='blog-post']= "#{post.created_at} #{post.title}"
+			- else
+			  p There's nothing here yet
 
-.band-blog
-	h3 Posts
-	- if has_posts?
-	  - @band.posts.each do |post|
-	    a[href=band_post_path(post, @band) class='blog-post']= "#{post.created_at} #{post.title}"
-	- else
-	  p There's nothing here yet
-
-h2 #{@band.name} Friend Space
-.band-friends
-	- if has_friends?
-		- @band.friends.each do |friend|
-			.band-friend
-				.friend-name= friend.name
-				img[class="friend-img" src="#{friend.image}"]
-	- else
-	 img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
-
-.band-comments
-	h2 #{@band.name}'s Friends Comments
-	p Displaying 50 of 34234 comments (View/Edit All Comments)
-	- if has_comments?
-		- @band.comments.each do |comment|
-			.band-comment
-				.band-comment-name
-					.comment-username= comment.username
-					img[src="#{comment.image}" class='comment-image']
-				.band-comment-body
-					.band-comment-time= comment.created_at.strftime("%m/%m/%Y%l:%M%p")
-					= comment.body
-	- else
-		p No one has left a comment
+		h2 #{@band.name} Friend Space
+		.friends
+			- if has_friends?
+				- @band.friends.each do |friend|
+					.band-friend
+						h4.friend-name= friend.name
+						img[class="friend-img" src="#{friend.image}"]
+			- else
+			 img[src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
+		.comments
+			h2 #{@band.name}'s Friends Comments
+			p Displaying 50 of 34234 comments (View/Edit All Comments)
+			- if has_comments?
+				table
+					- @band.comments.each do |comment|
+						tr
+							td.orange-table-title
+								h4.comment-user= comment.username
+								img[src="#{comment.image}" class='comment-image']
+							td.orange-table-content
+								= comment.created_at.strftime("%m/%m/%Y%l:%M%p")
+								= comment.body
+			- else
+				p No one has left a comment

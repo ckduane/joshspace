@@ -1,21 +1,49 @@
+$darkest-blue: rgb(102, 153, 204);
+$medium-blue: #b1d0f0;
+$light-blue: rgb(213, 232, 251);
+$link-blue: #003399;
+
+$orange: #FF9933;
+$light-orange: #F9D6B4;
+
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: verdana,arial,sans-serif,helvetica;
-  font-size: 0.8rem;
+  font-size: 8pt;
+}
+h1, h2, h3, td {
+	margin: 0 !important;
+  padding: 0 !important;
 }
 h1 {
-	font-size: 2rem;
+	font-size: 12pt;
 }
 h2 {
 	color: white;
-	font-size: 0.9rem;
+	font-size: 9pt;
 	font-weight: bold;
 	margin: 0;
 	padding: 0.1rem 1rem 0rem;
 }
-a {
-	color: #003399
+h3 {
+	color: #369;
+	font-size: 8pt;
 }
-
+h4, a {
+	color: $link-blue;
+}
+main {
+	display: flex;
+}
+.left-container {
+	padding-right: 1.5rem;
+	width: 30rem;
+}
+.right-container {
+	width: 45.04rem
+}
 .band-show {
 	display: flex;
 }
@@ -23,18 +51,30 @@ a {
 	display: flex;
 	flex-direction: column;
 }
-.contact-info-title {
-	background: rgb(102, 153, 204);
+// Tables
+.blue-title {
+	background: $darkest-blue;
 }
-.contact-info{
-	display: flex;
-	border: 0.2rem solid rgb(102, 153, 204);
-	img {
-		display: block;
-		padding: 0.25rem 1rem;
-	}
+.blue-table-title {
+	background-color: $medium-blue;
 }
+.blue-table-content {
+	background-color: $light-blue;
+}
+.orange-table-title {
+	background: $orange;
+}
+.orange-table-content {
+	background: $light-orange;
+} 
 
+
+.contact-info, .general-info {
+	border: 0.2rem solid $darkest-blue;
+}
+.contact-info {
+	width: 30rem;
+}
 // Audio Player
 #songData {
 	display: none;
@@ -59,18 +99,15 @@ a {
 }
 
 // Friends
-.band-friends {
+.friends {
 	display: flex;
 }
 .friend-img {
-	max-height: 10rem;
-	max-width: 10rem;
+	max-height: 12rem;
+	max-width: 9rem;
 }
 
 // Comments
-.band-comment {
-	display: flex;
-}
 .comment-image {
 	max-height: 10rem;
 	max-width: 10rem;
