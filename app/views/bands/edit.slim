@@ -1,6 +1,9 @@
 
 #band-edit-page
-  = render 'form', band: @band
+  - if user_signed_in?
+    = render 'form', band: @band
 
-  = link_to 'Show', @band
-  = link_to 'Back', bands_path 
+    = link_to 'Show', @band
+    = link_to 'Back', bands_path 
+  - else
+    p You must be signed in to view this page.

@@ -7,6 +7,8 @@ $dark-orange: #f60;
 $orange: #FF9933;
 $light-orange: #F9D6B4;
 
+$red: rgb(153, 0, 51);
+
 html {
   font-size: 62.5%;
 }
@@ -38,6 +40,36 @@ h4, a {
 main {
 	display: flex;
 }
+.page-container {
+  width: 850px;
+  margin: auto;
+  background-color: white;
+}
+// main navigation thingie
+.top-nav {
+  ul {
+    list-style: none;
+    background-color: $red;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+    width: 100px;
+    border-bottom: none;
+    display: inline-block;
+  }
+  a {
+    display: block;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
 .left-container {
 	padding-right: 1.5rem;
 	width: 30rem;

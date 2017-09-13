@@ -69,7 +69,7 @@ main
 			h3 Posts
 			- if has_posts?
 			  - @band.posts.each do |post|
-			    a[href=band_post_path(post, @band) class='blog-post']= "#{post.created_at} #{post.title}"
+			    a[href=band_post_path(@band, post) class='blog-post']= "#{post.created_at} #{post.title}"
 			- else
 			  p There's nothing here yet
 

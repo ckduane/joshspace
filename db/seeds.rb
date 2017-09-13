@@ -31,10 +31,10 @@ friend0 = Friend.create!({
   band_id: band.id
   })
 
-post = Post.create!({
+post = band.posts.create!({
   title: "Dirty Potato Chips",
-  body: "We kettle cook in a premium peanut oil blend for a crunchier, tastier potato chop!",
-  band_id: band.id
+  body: "We kettle cook in a premium peanut oil blend for a crunchier, tastier potato chop!"
+  # band_id: band.id
   })
 
 friend1 = Friend.create!({
@@ -85,7 +85,7 @@ commenst = band.comments.create!({
   body: "~~~*~*~*~**~*~*~**~*~*~*~*))>><<(("
 })
 
-poswt = band.posts.create!({
+post2 = band.posts.create!({
   title: "How to Tame a Plastic Bag",
   body: "First and foremost, this is assuming the plastic bag is wild. There is no need to tame a bag picked up from the grocery store. These are domesticated bags who have led peaceful, orderly lives."
   })
@@ -93,4 +93,4 @@ poswt = band.posts.create!({
 pos2t = band.posts.create!({
   title: "Enjoying your first brainfreeze",
   body: "Summertime is filled with the hot sunshine. It burns. It burns your brain."
-  })
+})
