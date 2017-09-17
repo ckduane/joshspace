@@ -4,16 +4,17 @@
       span#npAction.left
         | Paused...
       span#npTitle.right
-    = image_tag("stop", id: "stop-btn")
-    = image_tag("pause", id: "pause-btn")
-    = image_tag("play", id: "play-btn")
+
     #audiowrap
       #audio0
         audio#audio1[preload controls="controls"]
           | Your browser does not support HTML5 Audio!
       #tracks
+        = image_tag("stop", id: "stop-btn")
         a#btnPrev
           = image_tag("prev", id: "prev-btn")
+        = image_tag("pause", id: "pause-btn")
+        = image_tag("play", id: "play-btn")
         a#btnNext
           = image_tag("next", id: "next-btn")
     #plwrap

@@ -99,6 +99,15 @@ jQuery(function ($) {
                 loadTrack(id);
                 audio.play();
             };
+            $("#play-btn").click(function() {
+              if (audio.paused) { audio.play(); }
+            });
+            $("#pause-btn").click(function() {
+              if (audio.play) { audio.pause(); }
+            });
+            $("#stop-btn").click(function() {
+              if (audio.play) { audio.pause(); }
+            });
         loadTrack(index);
     }
 });
