@@ -129,11 +129,10 @@ main {
 // band edit page
 #band-edit-page {
   input[type='text'], textarea {
-    padding: 5px;
-    width: 300px;
+    width: 30rem;
   }
   label {
-    margin-top: 10px;
+    margin-top: 1rem;
   }
 }
 .play {
@@ -161,4 +160,10 @@ main {
 .comment-image {
 	max-height: 10rem;
 	max-width: 10rem;
+}
+.new-comment {
+  text-align: center;
+  input[type='text'], textarea {
+    width: 25rem;
+  }
 }
