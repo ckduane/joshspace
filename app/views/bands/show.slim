@@ -101,5 +101,8 @@ main
 								= comment.body
 			- else
 				p No one has left a comment
-			h2 Add a Comment
-			= render 'comments/form'
+		.new-comment
+			.orange-title
+				h2 Add a Comment
+			.orange-table-content
+				= render 'comments/form'
