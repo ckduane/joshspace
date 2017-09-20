@@ -8,6 +8,7 @@ $orange: #FF9933;
 $light-orange: #F9D6B4;
 
 $red: rgb(153, 0, 51);
+$gray: #ACACAC;
 
 html {
   font-size: 62.5%;
@@ -105,9 +106,7 @@ main {
 }
 .orange-table-content {
 	background: $light-orange;
-} 
-
-
+}
 .contact-info, .general-info {
 	border: 0.2rem solid $dark-blue;
 }
@@ -115,6 +114,38 @@ main {
 	width: 30rem;
 }
 // Audio Player
+.playing-container {
+  background: #362F2F;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 10px;
+  padding: 0.5rem 1rem;
+}
+#audio1 {
+  display: none;
+}
+.audio-top {
+  display: flex;
+  background: $gray; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(white, $gray, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(white, $gray, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(white, $gray, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(white, $gray, white); /* Standard syntax */
+  padding: 1rem;
+}
+#tracks {
+  width: 20rem;
+  img {
+    max-height: 3.5rem;
+    padding-right: 0.5rem;
+  }
+}
+#npTitle {
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 #songData {
 	display: none;
 }
