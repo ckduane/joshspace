@@ -89,6 +89,16 @@ main {
 	display: flex;
 	flex-direction: column;
 }
+.band-img-container {
+  display: flex;
+  img {
+    border: 1px solid #000;
+    max-height: 20rem;
+  }
+  p {
+    margin-top: 0;
+  }
+}
 // Tables
 .blue-title {
 	background: $dark-blue;
@@ -166,10 +176,10 @@ main {
   background-position: center;
 }
 .play {
-	background: url('../images/play.png') no-repeat;
+	background: image-url('../images/play.png') no-repeat;
 }
 .pause {
-	background: url('../images/pause.png') no-repeat;
+	background: image-url('../images/pause.png') no-repeat;
 }
 #totalplays {
   background: rgb(38,38,38);

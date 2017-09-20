@@ -7,11 +7,11 @@ main
 				.band-info
 					.band-img-container
 						img[class="band-img" src="#{@band.photo}"]
-					.band-status
-						p= @band.location
-						p= @band.profile_views
-						p= @band.last_login
-						
+						.band-status
+							p= @band.location
+							p Profile Views: #{@band.profile_views}
+							p Last Login: #{@band.last_login}
+							
 					.contact-info.blue-title
 						h2 Contacting #{@band.name}
 					table.contact-info
@@ -65,6 +65,15 @@ main
 	.right-container
 		.audio-container
 				= render "audio"
+		.blue-title
+			h2 #{@band.name} Upcoming Shows
+		table.general-info
+			- @band.shows.each do |show|
+				tr
+					td.blue-table-content #{show.date}
+					td.blue-table-content #{show.time}
+					td.blue-table-content #{show.name}
+					td.blue-table-content #{show.location}
 		.blog
 			h3 Posts
 			- if has_posts?
