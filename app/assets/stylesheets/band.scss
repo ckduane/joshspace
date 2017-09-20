@@ -129,10 +129,10 @@ main {
   background-position: center;
 }
 .play {
-	background: url('../images/play.png') no-repeat;
+	background: image-url('../images/play.png') no-repeat;
 }
 .pause {
-	background: url('../images/pause.png') no-repeat;
+	background: image-url('../images/pause.png') no-repeat;
 }
 #totalplays {
   background: rgb(38,38,38);
