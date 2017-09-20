@@ -113,6 +113,26 @@ input[type='text'], textarea {
   padding: .7rem;
 }
 
+.page-container {
+  width: 850px;
+  margin: auto;
+  background-color: white;
+}
+.left-container {
+  padding: 1rem 2.5rem;
+  width: 30rem;
+}
+.right-container {
+  padding-top: 2rem;
+  width: 45.04rem;
+}
+
+// Tables
+.blue-table {
+  border: 0.2rem solid $dark-blue;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
 .blue-title {
   background: $dark-blue;
 }
@@ -122,6 +142,7 @@ input[type='text'], textarea {
 .blue-table-content {
   background-color: $light-blue;
 }
+
 .orange-title {
   background: $light-orange;
   h2 {
@@ -133,16 +154,4 @@ input[type='text'], textarea {
 }
 .orange-table-content {
   background: $light-orange;
-}
-table.contact-info, table.upcoming-shows {
-  margin-bottom: 2.5rem;
-}
-.blue-table {
-  border: 0.2rem solid $dark-blue;
-}
-.contact-info {
-  width: 30rem;
-}
-.upcoming-shows {
-  width: 45.04rem;
 }
