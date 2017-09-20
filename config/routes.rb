@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :friends
     resources :comments
     resources :posts
+    resources :shows
   end
 
   root to: "home#index"

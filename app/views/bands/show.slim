@@ -67,13 +67,18 @@ main
 				= render "audio"
 		.blue-title
 			h2 #{@band.name} Upcoming Shows
-		table.general-info
+			- if user_signed_in? && is_josh?
+				td.blue-table-content= link_to "New Show", new_band_show_path(@band)
+		table.general-info.show-table
 			- @band.shows.each do |show|
 				tr
 					td.blue-table-content #{show.date}
 					td.blue-table-content #{show.time}
 					td.blue-table-content #{show.name}
 					td.blue-table-content #{show.location}
+					- if user_signed_in? && is_josh?
+						td.blue-table-content= link_to "Edit", edit_band_show_path(@band, show)
+						td.blue-table-content= link_to "Delete", band_show_path(@band, show), :data => {:confirm => 'Are you sure you want to delete your show?'}, :method => :delete
 		.blog
 			h3 Posts
 			- if has_posts?
