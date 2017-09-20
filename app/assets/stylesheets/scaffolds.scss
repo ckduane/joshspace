@@ -35,13 +35,10 @@ h3 {
 }
 
 h4, a {
-  color: $link-blue;
-}
-
-a {
-  color: $link-blue;
   font-weight: bold;
   text-decoration: none;
+  color: $link-blue;
+  cursor: pointer;
   &:hover, &:focus {
     color: $link-hover-red;
     text-decoration: underline;
@@ -114,4 +111,38 @@ label {
 }
 input[type='text'], textarea {
   padding: .7rem;
+}
+
+.blue-title {
+  background: $dark-blue;
+}
+.blue-table-title {
+  background-color: $medium-blue;
+}
+.blue-table-content {
+  background-color: $light-blue;
+}
+.orange-title {
+  background: $light-orange;
+  h2 {
+    color: $dark-orange;
+  }
+}
+.orange-table-title {
+  background: $orange;
+}
+.orange-table-content {
+  background: $light-orange;
+}
+table.contact-info, table.upcoming-shows {
+  margin-bottom: 2.5rem;
+}
+.blue-table {
+  border: 0.2rem solid $dark-blue;
+}
+.contact-info {
+  width: 30rem;
+}
+.upcoming-shows {
+  width: 45.04rem;
 }

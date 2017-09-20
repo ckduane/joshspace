@@ -1,3 +1,16 @@
-// Place all the styles related to the Friend controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.friends {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.friend {
+  width: 25%;
+}
+.friend-name {
+  text-align: center;
+}
+.friend-img {
+  padding: 0 1rem;
+  max-height: 12rem;
+  max-width: 9rem;
+}

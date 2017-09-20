@@ -58,40 +58,7 @@
 .band-status {
   padding: 0 1rem;
 }
-// Tables
-.blue-title {
-	background: $dark-blue;
-}
-.blue-table-title {
-	background-color: $medium-blue;
-}
-.blue-table-content {
-	background-color: $light-blue;
-}
-.orange-title {
-	background: $light-orange;
-	h2 {
-		color: $dark-orange;
-	}
-}
-.orange-table-title {
-	background: $orange;
-}
-.orange-table-content {
-	background: $light-orange;
-}
-table.contact-info, table.upcoming-shows {
-  margin-bottom: 2.5rem;
-}
-.blue-table {
-	border: 0.2rem solid $dark-blue;
-}
-.contact-info {
-	width: 30rem;
-}
-.upcoming-shows {
-  width: 45.04rem;
-}
+
 // Audio Player
 .playing-container {
   background: #362F2F;
@@ -206,34 +173,5 @@ table.contact-info, table.upcoming-shows {
   }
   label {
     margin-top: 1rem;
-  }
-}
-
-// Blog
-.blog-post {
-  padding: 1rem 0;
-}
-.blog-post-link {
-	display: inline-block;
-}
-
-// Friends
-.friends {
-	display: flex;
-}
-.friend-name {
-  text-align: center;
-}
-.friend-img {
-  padding: 0 1rem;
-	max-height: 12rem;
-	max-width: 9rem;
-}
-
-// Comments
-.new-comment {
-  text-align: center;
-  input[type='text'], textarea {
-    width: 25rem;
   }
 }

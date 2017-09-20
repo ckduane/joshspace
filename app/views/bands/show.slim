@@ -68,10 +68,11 @@ main
 
 		.orange-title
 			h2 #{@band.name}'s Friend Space
+		b #{@band.name} has 14214 friends.
 		.friends
 			- if has_friends?
 				- @band.friends.each do |friend|
-					.band-friend
+					.friend
 						h4.friend-name= friend.name
 						img[class="friend-img" src="#{friend.image}"]
 			- else
