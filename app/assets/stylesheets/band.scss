@@ -87,6 +87,17 @@ header {
 .contact-info img {
   cursor: pointer;
 }
+
+// upcoming shows
+.show-table {
+  width: 100%;
+  td {
+    width: 25%;
+  }
+}
+
+// band edit page
+
 #band-edit-page {
   input[type='text'], textarea {
     width: 30rem;
