@@ -1,25 +1,28 @@
 .container
   #mainwrap
-    #nowPlay
-      span#npAction.left
-        | Paused...
-      span#npTitle.right
-    = image_tag("stop", id: "stop-btn")
-    = image_tag("pause", id: "pause-btn")
-    = image_tag("play", id: "play-btn")
-    #audiowrap
-      #audio0
-        audio#audio1[preload controls="controls"]
-          | Your browser does not support HTML5 Audio!
-      #tracks
-        a#btnPrev
-          = image_tag("prev", id: "prev-btn")
-        a#btnNext
-          = image_tag("next", id: "next-btn")
+    .audio-top
+      #audiowrap
+        #audio0
+          audio#audio1[preload controls="controls"]
+            | Your browser does not support HTML5 Audio!
+        #tracks
+          = image_tag("stop", id: "stop-btn")
+          a#btnPrev
+            = image_tag("prev", id: "prev-btn")
+          = image_tag("pause", id: "pause-btn")
+          = image_tag("play", id: "play-btn")
+          a#btnNext
+            = image_tag("next", id: "next-btn")
+      .playing-container
+        #npTitle
+        .band-name= @band.name.upcase
+        #npAction
+          span paused
     #totalplays
       span Total Plays: 23432141
       span Downloads Today: 0
       span Plays Today: 1
+
     #plwrap
       .cover-art
         img[src='https://i.guim.co.uk/img/static/sys-images/Media/Pix/pictures/2003/02/03/dawson2.jpg?w=300&q=55&auto=format&usm=12&fit=max&s=a81072cd605ef3df43f75e07227bc1a1']

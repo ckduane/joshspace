@@ -40,12 +40,12 @@ jQuery(function ($) {
             npTitle = $('#npTitle'),
             audio = $('#audio1').bind('play', function () {
                 playing = true;
-                npAction.text('Now Playing...');
+                npAction.text('playing');
             }).bind('pause', function () {
                 playing = false;
-                npAction.text('Paused...');
+                npAction.text('paused');
             }).bind('ended', function () {
-                npAction.text('Paused...');
+                npAction.text('paused');
                 if ((index + 1) < trackCount) {
                     index++;
                     loadTrack(index);
@@ -99,6 +99,15 @@ jQuery(function ($) {
                 loadTrack(id);
                 audio.play();
             };
+            $("#play-btn").click(function() {
+              if (audio.paused) { audio.play(); }
+            });
+            $("#pause-btn").click(function() {
+              if (audio.play) { audio.pause(); }
+            });
+            $("#stop-btn").click(function() {
+              if (audio.play) { audio.pause(); }
+            });
         loadTrack(index);
     }
 });

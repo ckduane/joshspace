@@ -8,6 +8,7 @@ $orange: #FF9933;
 $light-orange: #F9D6B4;
 
 $red: rgb(153, 0, 51);
+$gray: #ACACAC;
 
 html {
   font-size: 62.5%;
@@ -36,6 +37,10 @@ h3 {
 }
 h4, a {
 	color: $link-blue;
+}
+a:hover, a:focus {
+  color: inherit;
+  background-color: transparent !important;
 }
 main {
 	display: flex;
@@ -105,9 +110,7 @@ main {
 }
 .orange-table-content {
 	background: $light-orange;
-} 
-
-
+}
 .contact-info, .general-info {
 	border: 0.2rem solid $dark-blue;
 }
@@ -115,6 +118,40 @@ main {
 	width: 30rem;
 }
 // Audio Player
+.playing-container {
+  background: #362F2F;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 10px;
+  padding: 0.5rem 1rem;
+  width: 21.5rem;
+}
+#audio1 {
+  display: none;
+}
+.audio-top {
+  display: flex;
+  background: $gray; 
+  background: -webkit-linear-gradient(white, $gray, white);
+  background: -o-linear-gradient(white, $gray, white);
+  background: -moz-linear-gradient(white, $gray, white);
+  background: linear-gradient(white, $gray, white); 
+  padding: 0.5rem;
+}
+#tracks {
+  width: 20rem;
+  img {
+    cursor: pointer;
+    max-height: 3.5rem;
+    padding-right: 0.5rem;
+  }
+}
+#npTitle {
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .audio-container #mainwrap {
   border: .1rem solid rgb(38,38,38);
 }
@@ -164,6 +201,10 @@ main {
     .plTitle {
       padding: 1rem 1rem 2rem 1rem;
       position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 28rem;
       &:after {
         content: 'Download | Rate | Comments | Lyrics | Add';
         position: absolute;
@@ -173,9 +214,6 @@ main {
       }
     }
   }
-}
-li.plSel {
-
 }
 
 // band edit page
