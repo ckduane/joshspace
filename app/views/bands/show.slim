@@ -11,35 +11,24 @@ main
 							p= @band.location
 							p Profile Views: #{@band.profile_views}
 							p Last Login: #{@band.last_login}
-							
-					.contact-info.blue-title
-						h2 Contacting #{@band.name}
-					table.contact-info
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/sendMailIcon.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/forwardMailIcon.gif']
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFriendIcon.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFavoritesIcon.gif']
-								
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/messagefriend.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/blockuser.gif']
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_add_to_group.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_rank_user4.gif']
 
-		.blue-title
-			h2 #{@band.name} General Info
-		table.general-info
+		table.blue-table.contact-info
+			h2.blue-title Contacting #{@band.name}
+			tr
+				td= image_tag("contact/sendMail", title: "Send Message")
+				td= image_tag("contact/forwardFriend", title: "Forward to Friend")
+			tr
+				td= image_tag("contact/addFriend", title: "Add to Friends")
+				td= image_tag("contact/addFavorites", title: "Add to Favorites")
+			tr
+				td= image_tag("contact/instantMessage", title: "Instant Message")
+				td= image_tag("contact/blockUser", title: "Block User")
+			tr
+				td= image_tag("contact/addGroup", title: "Add to Group")
+				td= image_tag("contact/rankUser", title: "Rank User")
+
+		table.blue-table.general-info
+			h2.blue-title #{@band.name} General Info
 			tr
 				td.blue-table-title
 					h3 Member Since
@@ -65,25 +54,30 @@ main
 	.right-container
 		.audio-container
 				= render "audio"
-		.blue-title
-			h2 #{@band.name} Upcoming Shows
-		table.general-info
+
+		table.blue-table.upcoming-shows
+			h2.blue-title Upcoming Shows
 			- @band.shows.each do |show|
 				tr
-					td.blue-table-content #{show.date}
+					td.blue-table-title #{show.date}
 					td.blue-table-content #{show.time}
 					td.blue-table-content #{show.name}
 					td.blue-table-content #{show.location}
+
 		.blog
-			h3 Posts
+			b #{@band.name}'s Latest Blog Entry
 			- if has_posts?
-			  - @band.posts.each do |post|
-			    a[href=band_post_path(@band, post) class='blog-post']= "#{post.created_at} #{post.title}"
+				- @band.posts.each do |post|
+					.blog-post
+						= post.title + " ("
+						a[href=band_post_path(@band, post) class='blog-post-link'] view more
+						span )
+						br
 			- else
-			  p There's nothing here yet
+				p There's nothing here yet
 
 		.orange-title
-			h2 #{@band.name} Friend Space
+			h2 #{@band.name}'s Friend Space
 		.friends
 			- if has_friends?
 				- @band.friends.each do |friend|
@@ -103,8 +97,8 @@ main
 					- @band.comments.each do |comment|
 						tr
 							td.orange-table-title
-								h4.comment-user= comment.username
-								img[src="#{comment.image}" class='comment-image']
+								h4.friend-name= comment.username
+								img[src="#{comment.image}" class='friend-img']
 							td.orange-table-content
 								- if user_signed_in? && is_josh?
 									h4 = link_to "Edit", edit_band_comment_path(@band, comment)

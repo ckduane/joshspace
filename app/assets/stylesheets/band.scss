@@ -1,50 +1,5 @@
-$dark-blue: rgb(102, 153, 204);
-$medium-blue: #b1d0f0;
-$light-blue: rgb(213, 232, 251);
-$link-blue: #003399;
+@import "variables";
 
-$dark-orange: #f60;
-$orange: #FF9933;
-$light-orange: #F9D6B4;
-
-$red: rgb(153, 0, 51);
-$gray: #ACACAC;
-
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: verdana,arial,sans-serif,helvetica;
-  font-size: 8pt;
-}
-h1, h2, h3, td {
-	margin: 0 !important;
-  padding: 0 !important;
-}
-h1 {
-	font-size: 12pt;
-}
-h2 {
-	color: white;
-	font-size: 9pt;
-	font-weight: bold;
-	margin: 0;
-	padding: 0.1rem 1rem 0rem;
-}
-h3 {
-	color: #369;
-	font-size: 8pt;
-}
-h4, a {
-	color: $link-blue;
-}
-a:hover, a:focus {
-  color: inherit;
-  background-color: transparent !important;
-}
-main {
-	display: flex;
-}
 .page-container {
   width: 850px;
   margin: auto;
@@ -76,11 +31,12 @@ main {
 }
 
 .left-container {
-	padding-right: 1.5rem;
+	padding: 1rem 2.5rem;
 	width: 30rem;
 }
 .right-container {
-	width: 45.04rem
+  padding-top: 2rem;
+	width: 45.04rem;
 }
 .band-show {
 	display: flex;
@@ -98,6 +54,9 @@ main {
   p {
     margin-top: 0;
   }
+}
+.band-status {
+  padding: 0 1rem;
 }
 // Tables
 .blue-title {
@@ -121,11 +80,17 @@ main {
 .orange-table-content {
 	background: $light-orange;
 }
-.contact-info, .general-info {
+table.contact-info, table.upcoming-shows {
+  margin-bottom: 2.5rem;
+}
+.blue-table {
 	border: 0.2rem solid $dark-blue;
 }
 .contact-info {
 	width: 30rem;
+}
+.upcoming-shows {
+  width: 45.04rem;
 }
 // Audio Player
 .playing-container {
@@ -141,12 +106,22 @@ main {
 }
 .audio-top {
   display: flex;
-  background: $gray; 
+  background: $gray;
   background: -webkit-linear-gradient(white, $gray, white);
   background: -o-linear-gradient(white, $gray, white);
   background: -moz-linear-gradient(white, $gray, white);
-  background: linear-gradient(white, $gray, white); 
+  background: linear-gradient(white, $gray, white);
   padding: 0.5rem;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: image-url('audio/dancing-volume.png');
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 }
 #tracks {
   width: 20rem;
@@ -175,12 +150,6 @@ main {
   background-size: 50% 50%;
   background-position: center;
 }
-.play {
-	background: image-url('../images/play.png') no-repeat;
-}
-.pause {
-	background: image-url('../images/pause.png') no-repeat;
-}
 #totalplays {
   background: rgb(38,38,38);
   color: #fff;
@@ -207,6 +176,9 @@ main {
       text-decoration: underline;
       cursor: pointer;
       border-bottom: 1px dashed gray;
+      &:last-child {
+        border-bottom: none;
+      }
     }
     .plTitle {
       padding: 1rem 1rem 2rem 1rem;
@@ -221,6 +193,7 @@ main {
         bottom: 0;
         left: 1rem;
         color: gray;
+        font-size: 1rem;
       }
     }
   }
@@ -238,23 +211,26 @@ main {
 
 // Blog
 .blog-post {
-	display: block;
+  padding: 1rem 0;
+}
+.blog-post-link {
+	display: inline-block;
 }
 
 // Friends
 .friends {
 	display: flex;
 }
+.friend-name {
+  text-align: center;
+}
 .friend-img {
+  padding: 0 1rem;
 	max-height: 12rem;
 	max-width: 9rem;
 }
 
 // Comments
-.comment-image {
-	max-height: 10rem;
-	max-width: 10rem;
-}
 .new-comment {
   text-align: center;
   input[type='text'], textarea {
