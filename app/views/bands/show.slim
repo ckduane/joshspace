@@ -64,17 +64,7 @@ main
 					td.blue-table-content #{show.name}
 					td.blue-table-content #{show.location}
 
-		.blog
-			b #{@band.name}'s Latest Blog Entry
-			- if has_posts?
-				- @band.posts.each do |post|
-					.blog-post
-						= post.title + " ("
-						a[href=band_post_path(@band, post) class='blog-post-link'] view more
-						span )
-						br
-			- else
-				p There's nothing here yet
+		= render 'posts/show'
 
 		.orange-title
 			h2 #{@band.name}'s Friend Space
@@ -88,27 +78,5 @@ main
 				.band-friend
 					h4 Tom
 					img[class="friend-img" src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
-		.comments
-			.orange-title
-				h2 #{@band.name}'s Friends Comments
-			b Displaying 50 of 34234 comments (View/Edit All Comments)
-			- if has_comments?
-				table
-					- @band.comments.each do |comment|
-						tr
-							td.orange-table-title
-								h4.friend-name= comment.username
-								img[src="#{comment.image}" class='friend-img']
-							td.orange-table-content
-								- if user_signed_in? && is_josh?
-									h4 = link_to "Edit", edit_band_comment_path(@band, comment)
-									h4 = link_to "Delete", band_comment_path(@band, comment), :data => {:confirm => 'Are you sure you want to delete your review?'}, :method => :delete
-								= comment.created_at.strftime("%m/%m/%Y%l:%M%p")
-								= comment.body
-			- else
-				p No one has left a comment
-		.new-comment
-			.orange-title
-				h2 Add a Comment
-			.orange-table-content
-				= render 'comments/form'
+
+		= render 'comments/show'

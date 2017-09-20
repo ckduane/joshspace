@@ -1,0 +1,24 @@
+.comments
+  .orange-title
+    h2 #{@band.name}'s Friends Comments
+  b Displaying 50 of 34234 comments (View/Edit All Comments)
+  - if has_comments?
+    table
+      - @band.comments.each do |comment|
+        tr
+          td.orange-table-title
+            h4.friend-name= comment.username
+            img[src="#{comment.image}" class='friend-img']
+          td.orange-table-content
+            - if user_signed_in? && is_josh?
+              h4 = link_to "Edit", edit_band_comment_path(@band, comment)
+              h4 = link_to "Delete", band_comment_path(@band, comment), :data => {:confirm => 'Are you sure you want to delete your review?'}, :method => :delete
+            = comment.created_at.strftime("%m/%m/%Y%l:%M%p")
+            = comment.body
+  - else
+    p No one has left a comment
+.new-comment
+  .orange-title
+    h2 Add a Comment
+  .orange-table-content
+    = render 'comments/form'
