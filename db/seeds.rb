@@ -21,7 +21,10 @@ band = Band.create!({
   influences: "bacteria and phytoplankton",
   sounds_like: "peeing for a really long time after d=having too hamye drinks",
   record_label: "Circle K",
-  type_of_label: "indie"
+  type_of_label: "indie",
+  profile_views: 101010,
+  last_login: "13/13/0000",
+  cover_art: "https://oldies.scdn5.secure.raxcdn.com/i/boxart/w128/85/83/886974858324.jpg?v=2"
   })
 
 friend0 = Friend.create!({
@@ -93,4 +96,11 @@ post2 = band.posts.create!({
 pos2t = band.posts.create!({
   title: "Enjoying your first brainfreeze",
   body: "Summertime is filled with the hot sunshine. It burns. It burns your brain."
+})
+
+show = band.shows.create!({
+  date: "11/1/1/1/1",
+  time: "4am",
+  name: "Whisker Patrol",
+  location: "San Diego, CA"
 })
