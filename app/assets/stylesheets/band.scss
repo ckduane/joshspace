@@ -38,6 +38,10 @@ h3 {
 h4, a {
 	color: $link-blue;
 }
+a:hover, a:focus {
+  color: inherit;
+  background-color: transparent !important;
+}
 main {
 	display: flex;
 }
@@ -120,22 +124,24 @@ main {
   color: white;
   font-size: 10px;
   padding: 0.5rem 1rem;
+  width: 21.5rem;
 }
 #audio1 {
   display: none;
 }
 .audio-top {
   display: flex;
-  background: $gray; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(white, $gray, white); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(white, $gray, white); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(white, $gray, white); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(white, $gray, white); /* Standard syntax */
-  padding: 1rem;
+  background: $gray; 
+  background: -webkit-linear-gradient(white, $gray, white);
+  background: -o-linear-gradient(white, $gray, white);
+  background: -moz-linear-gradient(white, $gray, white);
+  background: linear-gradient(white, $gray, white); 
+  padding: 0.5rem;
 }
 #tracks {
   width: 20rem;
   img {
+    cursor: pointer;
     max-height: 3.5rem;
     padding-right: 0.5rem;
   }
@@ -145,6 +151,9 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.audio-container #mainwrap {
+  border: .1rem solid rgb(38,38,38);
 }
 #songData {
 	display: none;
@@ -156,6 +165,56 @@ main {
   background-size: 50% 50%;
   background-position: center;
 }
+.play {
+	background: url('../images/play.png') no-repeat;
+}
+.pause {
+	background: url('../images/pause.png') no-repeat;
+}
+#totalplays {
+  background: rgb(38,38,38);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+}
+#plwrap {
+  background: #fff;
+  display: flex;
+  .cover-art {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(209, 209, 209);
+    padding: 1rem;
+  }
+  #plList {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style-type: none;
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+      border-bottom: 1px dashed gray;
+    }
+    .plTitle {
+      padding: 1rem 1rem 2rem 1rem;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 28rem;
+      &:after {
+        content: 'Download | Rate | Comments | Lyrics | Add';
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        color: gray;
+      }
+    }
+  }
+}
 
 // band edit page
 #band-edit-page {
@@ -165,12 +224,6 @@ main {
   label {
     margin-top: 1rem;
   }
-}
-.play {
-	background: url('../images/play.png') no-repeat;
-}
-.pause {
-	background: url('../images/pause.png') no-repeat;
 }
 
 // Blog
