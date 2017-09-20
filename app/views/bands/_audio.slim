@@ -6,13 +6,13 @@
           audio#audio1[preload controls="controls"]
             | Your browser does not support HTML5 Audio!
         #tracks
-          = image_tag("stop", id: "stop-btn")
+          = image_tag("audio/stop", id: "stop-btn")
           a#btnPrev
-            = image_tag("prev", id: "prev-btn")
-          = image_tag("pause", id: "pause-btn")
-          = image_tag("play", id: "play-btn")
+            = image_tag("audio/prev", id: "prev-btn")
+          = image_tag("audio/pause", id: "pause-btn")
+          = image_tag("audio/play", id: "play-btn")
           a#btnNext
-            = image_tag("next", id: "next-btn")
+            = image_tag("audio/next", id: "next-btn")
       .playing-container
         #npTitle
         .band-name= @band.name.upcase
@@ -27,10 +27,8 @@
       .cover-art
         img[src="#{@band.cover_art}"]
       ul#plList
-    
+
   ul#songData
     - @songs.links.each do |song|
       li[data-song-name=song.name data-song-url=song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')]
   ul#plList
-
-/ a[href="https://codepen.io/markhillard/pen/Hjcwu?editors=1010", target="_blank"] example

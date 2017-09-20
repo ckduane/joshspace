@@ -76,6 +76,21 @@ friend5 = Friend.create!({
   band_id: band.id
 })
 
+friend6 = Friend.create!({
+  name: "Louse",
+  image: "http://hencam.com/static/uploads/2012/06/smelling-flower.jpg",
+  order: 7,
+  band_id: band.id
+})
+
+friend7 = Friend.create!({
+  name: "Booty",
+  image: "http://wildlifeinsider.com/wp-content/uploads/2016/03/Screenshot-2016-03-21-12.33.27.jpg",
+  order: 8,
+  band_id: band.id
+})
+
+
 comment = band.comments.create!({
   username: "Bagelwich",
   image: "http://i.imgur.com/btFRjOf.png",

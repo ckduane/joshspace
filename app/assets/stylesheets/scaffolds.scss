@@ -1,17 +1,58 @@
+@import "variables";
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #e5e5e5;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 8pt;
   line-height: 18px;
-  margin: 33px;
+}
+
+h1, h2, h3, td {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 12pt;
+}
+
+h2 {
+  color: white;
+  font-size: 9pt;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.1rem 1rem 0rem;
+}
+
+h3 {
+  color: #369;
+  font-size: 8pt;
+}
+
+h4, a {
+  font-weight: bold;
+  text-decoration: none;
+  color: $link-blue;
+  cursor: pointer;
+  &:hover, &:focus {
+    color: $link-hover-red;
+    text-decoration: underline;
+  }
+}
+
+main {
+  display: flex;
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 8pt;
   line-height: 18px;
-  margin: 33px;
 }
 
 pre {
@@ -20,27 +61,8 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
-th {
-  padding-bottom: 5px;
-}
-
 td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0.5rem;
 }
 
 div {
@@ -89,4 +111,47 @@ label {
 }
 input[type='text'], textarea {
   padding: .7rem;
+}
+
+.page-container {
+  width: 850px;
+  margin: auto;
+  background-color: white;
+}
+.left-container {
+  padding: 1rem 2.5rem;
+  width: 30rem;
+}
+.right-container {
+  padding-top: 2rem;
+  width: 45.04rem;
+}
+
+// Tables
+.blue-table {
+  border: 0.2rem solid $dark-blue;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+.blue-title {
+  background: $dark-blue;
+}
+.blue-table-title {
+  background-color: $medium-blue;
+}
+.blue-table-content {
+  background-color: $light-blue;
+}
+
+.orange-title {
+  background: $light-orange;
+  h2 {
+    color: $dark-orange;
+  }
+}
+.orange-table-title {
+  background: $orange;
+}
+.orange-table-content {
+  background: $light-orange;
 }

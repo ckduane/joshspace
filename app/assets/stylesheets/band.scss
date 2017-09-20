@@ -1,55 +1,6 @@
-$dark-blue: rgb(102, 153, 204);
-$medium-blue: #b1d0f0;
-$light-blue: rgb(213, 232, 251);
-$link-blue: #003399;
+@import "variables";
 
-$dark-orange: #f60;
-$orange: #FF9933;
-$light-orange: #F9D6B4;
 
-$red: rgb(153, 0, 51);
-$gray: #ACACAC;
-
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: verdana,arial,sans-serif,helvetica;
-  font-size: 8pt;
-}
-h1, h2, h3, td {
-	margin: 0 !important;
-  padding: 0 !important;
-}
-h1 {
-	font-size: 12pt;
-}
-h2 {
-	color: white;
-	font-size: 9pt;
-	font-weight: bold;
-	margin: 0;
-	padding: 0.1rem 1rem 0rem;
-}
-h3 {
-	color: #369;
-	font-size: 8pt;
-}
-h4, a {
-	color: $link-blue;
-}
-a:hover, a:focus {
-  color: inherit;
-  background-color: transparent !important;
-}
-main {
-	display: flex;
-}
-.page-container {
-  width: 850px;
-  margin: auto;
-  background-color: white;
-}
 // main navigation thingie
 .top-nav {
   ul {
@@ -74,13 +25,43 @@ main {
     }
   }
 }
-
-.left-container {
-	padding-right: 1.5rem;
-	width: 30rem;
+header {
+  background-color: #003399;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  ul {
+    display: inline-block;
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+  }
+  input[type='text'] {
+    padding: 0;
+  }
 }
-.right-container {
-	width: 45.04rem
+.navlinks {
+  background-color: #6698CB;
+  padding: 0.5rem;
+  margin: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    &:before {
+      content: "|";
+      color: black;
+      padding: 0 0.5rem;
+    }
+    &:first-child:before {
+      content: "";
+    }
+  }
 }
 .band-show {
 	display: flex;
@@ -88,6 +69,7 @@ main {
 .band-container {
 	display: flex;
 	flex-direction: column;
+  margin-bottom: 2.5rem;
 }
 .band-img-container {
   display: flex;
@@ -99,131 +81,11 @@ main {
     margin-top: 0;
   }
 }
-// Tables
-.blue-title {
-	background: $dark-blue;
+.band-status {
+  padding: 0 1rem;
 }
-.blue-table-title {
-	background-color: $medium-blue;
-}
-.blue-table-content {
-	background-color: $light-blue;
-}
-.orange-title {
-	background: $light-orange;
-	h2 {
-		color: $dark-orange;
-	}
-}
-.orange-table-title {
-	background: $orange;
-}
-.orange-table-content {
-	background: $light-orange;
-}
-.contact-info, .general-info {
-	border: 0.2rem solid $dark-blue;
-}
-.contact-info {
-	width: 30rem;
-}
-// Audio Player
-.playing-container {
-  background: #362F2F;
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 10px;
-  padding: 0.5rem 1rem;
-  width: 21.5rem;
-}
-#audio1 {
-  display: none;
-}
-.audio-top {
-  display: flex;
-  background: $gray; 
-  background: -webkit-linear-gradient(white, $gray, white);
-  background: -o-linear-gradient(white, $gray, white);
-  background: -moz-linear-gradient(white, $gray, white);
-  background: linear-gradient(white, $gray, white); 
-  padding: 0.5rem;
-}
-#tracks {
-  width: 20rem;
-  img {
-    cursor: pointer;
-    max-height: 3.5rem;
-    padding-right: 0.5rem;
-  }
-}
-#npTitle {
-  font-weight: bold;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.audio-container #mainwrap {
-  border: .1rem solid rgb(38,38,38);
-}
-#songData {
-	display: none;
-}
-#pButton{
-  height:60px;
-  width: 60px;
-  border: none;
-  background-size: 50% 50%;
-  background-position: center;
-}
-.play {
-	background: image-url('../images/play.png') no-repeat;
-}
-.pause {
-	background: image-url('../images/pause.png') no-repeat;
-}
-#totalplays {
-  background: rgb(38,38,38);
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: .5rem 1rem;
-}
-#plwrap {
-  background: #fff;
-  display: flex;
-  .cover-art {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(209, 209, 209);
-    padding: 1rem;
-  }
-  #plList {
-    margin: 0;
-    padding: 0;
-    li {
-      list-style-type: none;
-      color: blue;
-      text-decoration: underline;
-      cursor: pointer;
-      border-bottom: 1px dashed gray;
-    }
-    .plTitle {
-      padding: 1rem 1rem 2rem 1rem;
-      position: relative;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 28rem;
-      &:after {
-        content: 'Download | Rate | Comments | Lyrics | Add';
-        position: absolute;
-        bottom: 0;
-        left: 1rem;
-        color: gray;
-      }
-    }
-  }
+.contact-info img {
+  cursor: pointer;
 }
 
 // upcoming shows
@@ -235,37 +97,12 @@ main {
 }
 
 // band edit page
+
 #band-edit-page {
   input[type='text'], textarea {
     width: 30rem;
   }
   label {
     margin-top: 1rem;
-  }
-}
-
-// Blog
-.blog-post {
-	display: block;
-}
-
-// Friends
-.friends {
-	display: flex;
-}
-.friend-img {
-	max-height: 12rem;
-	max-width: 9rem;
-}
-
-// Comments
-.comment-image {
-	max-height: 10rem;
-	max-width: 10rem;
-}
-.new-comment {
-  text-align: center;
-  input[type='text'], textarea {
-    width: 25rem;
   }
 }

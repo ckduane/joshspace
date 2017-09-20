@@ -11,35 +11,24 @@ main
 							p= @band.location
 							p Profile Views: #{@band.profile_views}
 							p Last Login: #{@band.last_login}
-							
-					.contact-info.blue-title
-						h2 Contacting #{@band.name}
-					table.contact-info
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/sendMailIcon.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/forwardMailIcon.gif']
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFriendIcon.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/addFavoritesIcon.gif']
-								
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/messagefriend.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/blockuser.gif']
-						tr
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_add_to_group.gif']
-							td
-								img[src='https://web.archive.org/web/20060311153235im_/http://x.myspace.com/images/icon_rank_user4.gif']
 
-		.blue-title
-			h2 #{@band.name} General Info
-		table.general-info
+		table.blue-table.contact-info
+			h2.blue-title Contacting #{@band.name}
+			tr
+				td= image_tag("contact/sendMail", title: "Send Message")
+				td= image_tag("contact/forwardFriend", title: "Forward to Friend")
+			tr
+				td= image_tag("contact/addFriend", title: "Add to Friends")
+				td= image_tag("contact/addFavorites", title: "Add to Favorites")
+			tr
+				td= image_tag("contact/instantMessage", title: "Instant Message")
+				td= image_tag("contact/blockUser", title: "Block User")
+			tr
+				td= image_tag("contact/addGroup", title: "Add to Group")
+				td= image_tag("contact/rankUser", title: "Rank User")
+
+		table.blue-table.general-info
+			h2.blue-title #{@band.name} General Info
 			tr
 				td.blue-table-title
 					h3 Member Since
@@ -65,61 +54,35 @@ main
 	.right-container
 		.audio-container
 				= render "audio"
-		.blue-title
-			h2 #{@band.name} Upcoming Shows
+
+		table.blue-table.upcoming-shows
+			h2.blue-title Upcoming Shows
 			- if user_signed_in? && is_josh?
 				td.blue-table-content= link_to "New Show", new_band_show_path(@band)
-		table.general-info.show-table
 			- @band.shows.each do |show|
 				tr
-					td.blue-table-content #{show.date}
+					td.blue-table-title #{show.date}
 					td.blue-table-content #{show.time}
 					td.blue-table-content #{show.name}
 					td.blue-table-content #{show.location}
 					- if user_signed_in? && is_josh?
-						td.blue-table-content= link_to "Edit", edit_band_show_path(@band, show)
-						td.blue-table-content= link_to "Delete", band_show_path(@band, show), :data => {:confirm => 'Are you sure you want to delete your show?'}, :method => :delete
-		.blog
-			h3 Posts
-			- if has_posts?
-			  - @band.posts.each do |post|
-			    a[href=band_post_path(@band, post) class='blog-post']= "#{post.created_at} #{post.title}"
-			- else
-			  p There's nothing here yet
+					  td.blue-table-content= link_to "Edit", edit_band_show_path(@band, show)
+					  td.blue-table-content= link_to "Delete", band_show_path(@band, show), :data => {:confirm => 'Are you sure you want to delete your show?'}, :method => :delete
+
+		= render 'posts/show'
 
 		.orange-title
-			h2 #{@band.name} Friend Space
+			h2 #{@band.name}'s Friend Space
+		b #{@band.name} has 14214 friends.
 		.friends
 			- if has_friends?
 				- @band.friends.each do |friend|
-					.band-friend
+					.friend
 						h4.friend-name= friend.name
 						img[class="friend-img" src="#{friend.image}"]
 			- else
 				.band-friend
 					h4 Tom
 					img[class="friend-img" src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
-		.comments
-			.orange-title
-				h2 #{@band.name}'s Friends Comments
-			b Displaying 50 of 34234 comments (View/Edit All Comments)
-			- if has_comments?
-				table
-					- @band.comments.each do |comment|
-						tr
-							td.orange-table-title
-								h4.comment-user= comment.username
-								img[src="#{comment.image}" class='comment-image']
-							td.orange-table-content
-								- if user_signed_in? && is_josh?
-									h4 = link_to "Edit", edit_band_comment_path(@band, comment)
-									h4 = link_to "Delete", band_comment_path(@band, comment), :data => {:confirm => 'Are you sure you want to delete your review?'}, :method => :delete
-								= comment.created_at.strftime("%m/%m/%Y%l:%M%p")
-								= comment.body
-			- else
-				p No one has left a comment
-		.new-comment
-			.orange-title
-				h2 Add a Comment
-			.orange-table-content
-				= render 'comments/form'
+
+		= render 'comments/show'
