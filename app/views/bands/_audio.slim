@@ -13,6 +13,9 @@
           = image_tag("audio/play", id: "play-btn")
           a#btnNext
             = image_tag("audio/next", id: "next-btn")
+        #seek
+          = image_tag("audio/volume-icon", id: "next-btn")
+          input[type="range" id="seek" value="0" max=""]
       .playing-container
         #npTitle
         .band-name= @band.name.upcase
