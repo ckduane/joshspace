@@ -1,7 +1,7 @@
 .container
   #mainwrap
     .audio-top
-      #audiowrap
+      .audiowrap
         #audio0
           audio#audio1[preload controls="controls"]
             | Your browser does not support HTML5 Audio!
@@ -14,13 +14,16 @@
           a#btnNext
             = image_tag("audio/next", id: "next-btn")
         #seek
-          = image_tag("audio/volume-icon", id: "next-btn")
-          input[type="range" id="seek" value="0" max=""]
-      .playing-container
-        #npTitle
-        .band-name= @band.name.upcase
-        #npAction
-          span paused
+          = image_tag("audio/volume-icon", id: "volume-icon")
+          input[type="range" id="volume-seek" value="0" max=""]
+          = image_tag("audio/volume-indicator", id: "volume-indicator")
+      .audiowrap
+        .playing-container
+          #npTitle
+          .band-name= @band.name.upcase
+          #npAction
+            span paused
+        input[type="range" id="track-seek" value="0" max=""]
     #totalplays
       span Total Plays: 23432141
       span Downloads Today: 0

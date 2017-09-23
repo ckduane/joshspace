@@ -26,7 +26,7 @@
   }
 }
 .playing-container {
-  background: #362F2F;
+  background: $audio-black;
   border-radius: 0.5rem;
   color: white;
   font-size: 10px;
@@ -107,4 +107,89 @@
     color: gray;
     font-size: 1rem;
   }
+}
+#volume-icon {
+  padding: 0.5rem 0.5rem 0;
+}
+#volume-indicator {
+  margin-left: 3.5rem;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 0;
+  width: 16rem;
+  &:focus {
+    outline: none;
+  }
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 16rem;
+  height: 0.5rem;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px white, 0px 0px 1px #0d0d0d;
+  background: $audio-black;
+}
+input[type=range]::-webkit-slider-thumb {
+  background: yellow;
+  // background-image: image-url("audio/volume-slider");
+  // background-color: transparent;
+  // background-size: contain;
+  height: 2rem;
+  width: 12rem;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $audio-black;
+}
+input[type=range]::-moz-range-track {
+  width: 16rem;
+  height: 0.5rem;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px white, 0px 0px 1px #0d0d0d;
+  background: $audio-black;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  background: yellow;
+  // background-image: image-url("audio/volume-slider");
+  // background-color: transparent;
+  // background-size: contain;
+  height: 2rem;
+  width: 12rem;
+}
+input[type=range]::-ms-track {
+  width: 16rem;
+  height: 0.5rem;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  box-shadow: 1px 1px 1px white, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  box-shadow: 1px 1px 1px white, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  background: goldenrod;
+  // background-image: image-url("audio/volume-slider");
+  // background-color: transparent;
+  // background-size: contain;
+  height: 2rem;
+  width: 12rem;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
 }

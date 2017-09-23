@@ -10,6 +10,8 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 8pt;
   line-height: 18px;
+  margin: 0;
+  width: 100%;
 }
 
 h1, h2, h3, td {
@@ -59,10 +61,6 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-td {
-  padding: 0.5rem;
 }
 
 div {
