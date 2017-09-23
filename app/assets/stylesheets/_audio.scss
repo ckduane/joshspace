@@ -108,11 +108,17 @@
     font-size: 1rem;
   }
 }
+.volume-container {
+  display: flex;
+}
+.volume {
+  margin-top: 0.5rem;
+}
 #volume-icon {
   padding: 0.5rem 0.5rem 0;
 }
 #volume-indicator {
-  margin-left: 3.5rem;
+  margin-left: 0.5rem;
 }
 
 input[type=range] {
@@ -132,12 +138,12 @@ input[type=range]::-webkit-slider-runnable-track {
   background: $audio-black;
 }
 input[type=range]::-webkit-slider-thumb {
-  background: yellow;
-  // background-image: image-url("audio/volume-slider");
-  // background-color: transparent;
-  // background-size: contain;
-  height: 2rem;
-  width: 12rem;
+  background: image-url("audio/volume-slider") center no-repeat;
+  height: 1rem;
+  width: 2.2rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.3rem;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: $audio-black;
@@ -152,12 +158,10 @@ input[type=range]::-moz-range-track {
   border: 0.2px solid #010101;
 }
 input[type=range]::-moz-range-thumb {
-  background: yellow;
-  // background-image: image-url("audio/volume-slider");
-  // background-color: transparent;
-  // background-size: contain;
-  height: 2rem;
-  width: 12rem;
+  background: image-url("audio/volume-slider") center no-repeat;
+  height: 1rem;
+  width: 2.2rem;
+  cursor: pointer;
 }
 input[type=range]::-ms-track {
   width: 16rem;
@@ -180,16 +184,26 @@ input[type=range]::-ms-fill-upper {
   box-shadow: 1px 1px 1px white, 0px 0px 1px #0d0d0d;
 }
 input[type=range]::-ms-thumb {
-  background: goldenrod;
-  // background-image: image-url("audio/volume-slider");
-  // background-color: transparent;
-  // background-size: contain;
-  height: 2rem;
-  width: 12rem;
+  background: image-url("audio/volume-slider") center no-repeat;
+  cursor: pointer;
 }
 input[type=range]:focus::-ms-fill-lower {
   background: #3071a9;
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
+}
+#track-seek::-webkit-slider-thumb {
+  background: image-url("audio/track-slider") center no-repeat;
+  height: 1rem;
+  width: 2.2rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.3rem;
+}
+#track-seek::-moz-range-thumb {
+  background: image-url("audio/track-slider") center no-repeat;
+  height: 1rem;
+  width: 2.2rem;
+  cursor: pointer;
 }
