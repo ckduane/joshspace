@@ -126,30 +126,29 @@ input[type='text'], textarea {
 }
 
 // Tables
-.blue-table {
+.primary {
   border: 0.2rem solid $dark-blue;
   margin-bottom: 2.5rem;
   width: 100%;
 }
-.blue-title {
-  background: $dark-blue;
+.primary-dark {
+  background-color: $dark-blue;
 }
-.blue-table-title {
+.primary-med {
   background-color: $medium-blue;
 }
-.blue-table-content {
+.primary-light {
   background-color: $light-blue;
 }
-
-.orange-title {
-  background: $light-orange;
+.secondary {
+  width: 100%;
+}
+.secondary-light {
+  background-color: $light-orange;
   h2 {
     color: $dark-orange;
   }
 }
-.orange-table-title {
+.secondary-med {
   background: $orange;
-}
-.orange-table-content {
-  background: $light-orange;
 }

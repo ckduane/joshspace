@@ -8,7 +8,7 @@
         span )
         - if user_signed_in? && is_josh?
           = link_to 'Edit', edit_band_post_path(post, @band)
-          = link_to 'Destroy', band_post_path(post, @band), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Delete', band_post_path(post, @band), method: :delete, data: { confirm: 'Are you sure?' }
         br
   - else
     p There's nothing here yet

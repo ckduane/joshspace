@@ -1,47 +1,49 @@
+h1 Editing Band
 =form_for @band do |f|
-  =f.label :name
-  =f.text_field :name
+  .container
+    =f.label :name
+    =f.text_field :name
 
-  =f.label :photo
-  =f.text_field :photo
+    =f.label :photo
+    =f.text_field :photo
 
-  =f.label :genre
-  =f.text_field :genre
+    =f.label :genre
+    =f.text_field :genre
 
-  =f.label :location
-  =f.text_field :location
+    =f.label :location
+    =f.text_field :location
 
-  =f.label :email
-  =f.text_field :email
+    =f.label :email
+    =f.text_field :email
 
-  =f.label :member_since
-  =f.text_field :member_since
+    =f.label :member_since
+    =f.text_field :member_since
 
-  =f.label :influences
-  =f.text_field :influences
+    =f.label :influences
+    =f.text_field :influences
 
-  =f.label :sounds_like
-  =f.text_field :sounds_like
+    =f.label :sounds_like
+    =f.text_field :sounds_like
 
-  =f.label :record_label
-  =f.text_field :record_label
+    =f.label :record_label
+    =f.text_field :record_label
 
-  =f.label :type_of_label
-  =f.text_field :type_of_label
+    =f.label :type_of_label
+    =f.text_field :type_of_label
 
-  =f.label :profile_views
-  =f.number_field :profile_views
+    =f.label :profile_views
+    =f.number_field :profile_views
 
-  =f.label :last_login
-  =f.text_field :last_login
+    =f.label :last_login
+    =f.text_field :last_login
 
-  =f.label :cover_art
-  =f.text_field :cover_art
+    =f.label :cover_art
+    =f.text_field :cover_art
+  .container
+    =f.label :css
+    =f.text_area :css, rows: 20
 
-  =f.label :css
-  =f.text_area :css, rows: 8
-
-  =f.label :javascript
-  =f.text_area :javascript, rows: 8
-
-  =f.submit "Save"
+    =f.label :javascript
+    =f.text_area :javascript, rows: 20
+  .container.submit-btn
+    =f.submit "Save"
