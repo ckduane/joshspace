@@ -1,3 +1,15 @@
 // Place all the styles related to the Shows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show-table {
+  width: 100%;
+  td {
+    width: 25%;
+  }
+}
+
+.new-show {
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}

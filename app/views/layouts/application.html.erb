@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @band.name %></title>
+    <title>Dawsons Screamo</title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
 
@@ -49,7 +49,7 @@
             <li><%= link_to "Register", new_user_registration_path %></li>
           <% else %>
             <% if user_signed_in? && is_josh? %>
-              <li><%= link_to "Edit", edit_band_path(@band) %></li>
+              <li><%= link_to "Edit Profile", edit_band_path(@band) %></li>
             <% end %>
             <li><%=current_user.email%></li>
             <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>

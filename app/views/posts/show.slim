@@ -1,0 +1,9 @@
+.blog-post
+  - if user_signed_in? && is_josh?
+    = link_to "Edit", edit_band_post_path(@band, @post)
+    = link_to "Delete", band_post_path(@band, @post), :data => {:confirm => 'Are you sure you want to delete your post?'}, :method => :delete
+  p
+    b= @post.title
+  p Published: #{@post.created_at.strftime("%A, %d %b %Y %l:%M %p")}
+  p
+    =@post.body

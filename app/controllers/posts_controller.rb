@@ -1,36 +1,30 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_band
   # GET /posts
   # GET /posts.json
   def index
-    @band = Band.find(params[:band_id])
     @posts = @band.posts.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @band = Band.find(params[:band_id])
   end
 
   # GET /posts/new
   def new
-    @band = Band.find(params[:band_id])
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
-    @band = Band.find(params[:band_id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @band = Band.find(params[:band_id])
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -47,7 +41,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to band_post_path(@band, @post), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -67,6 +61,9 @@ class PostsController < ApplicationController
   end
 
   private
+    def find_band
+      @band = Band.find_by(id: params[:band_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
