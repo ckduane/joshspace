@@ -111,3 +111,9 @@ jQuery(function ($) {
         loadTrack(index);
     }
 });
+
+$(document).ready(function(){
+    $('#add-comment').on('click', function(){
+        $('.new-comment').show();
+    })
+});
