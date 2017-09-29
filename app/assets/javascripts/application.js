@@ -101,12 +101,15 @@ jQuery(function ($) {
             };
             $("#play-btn").click(function() {
               if (audio.paused) { audio.play(); }
+              $(".row").addClass("activated");
             });
             $("#pause-btn").click(function() {
               if (audio.play) { audio.pause(); }
+              $(".row").removeClass("activated");
             });
             $("#stop-btn").click(function() {
               if (audio.play) { audio.pause(); }
+              $(".row").removeClass("activated");
             });
         loadTrack(index);
     }

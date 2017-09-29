@@ -15,15 +15,15 @@
   background: linear-gradient(white, $gray, white);
   padding: 0.5rem;
   position: relative;
-  &::before {
-    position: absolute;
-    content: image-url('audio/dancing-volume.jpg');
-    display: block;
-    height: 100%;
-    width: 100%;
-    top: 2.5rem;
-    left: 36rem;
-  }
+  // &::before {
+  //   position: absolute;
+  //   content: image-url('audio/dancing-volume.jpg');
+  //   display: block;
+  //   height: 100%;
+  //   width: 100%;
+  //   top: 2.5rem;
+  //   left: 36rem;
+  // }
 }
 .playing-container {
   background: $audio-black;
@@ -208,4 +208,92 @@ input[type=range]:focus::-ms-fill-upper {
   height: 1rem;
   width: 2.2rem;
   cursor: pointer;
+}
+
+// equalizer
+.row {
+  display: flex;
+  position: relative;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 8rem;
+    height: 5rem;
+  }
+  .bar {
+    height: 5rem;
+    width: 1rem;
+    margin-right: .5rem;
+    position: relative;
+  }
+}
+.row.activated {
+  &:after {
+    background-image: linear-gradient($audio-black 50%, transparent 10%);
+    background-size: 1rem .5rem;
+  }
+  .bar {
+    background: rgba(255,20,51,1);
+    background: -moz-linear-gradient(top, rgba(255,20,51,1) 0%, rgba(255,139,15,1) 27%, rgba(255,243,13,1) 71%, rgba(255,255,255,1) 88%, rgba(38,179,13,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,20,51,1)), color-stop(27%, rgba(255,139,15,1)), color-stop(71%, rgba(255,243,13,1)), color-stop(88%, rgba(255,255,255,1)), color-stop(100%, rgba(38,179,13,1)));
+    background: -webkit-linear-gradient(top, rgba(255,20,51,1) 0%, rgba(255,139,15,1) 27%, rgba(255,243,13,1) 71%, rgba(255,255,255,1) 88%, rgba(38,179,13,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,20,51,1) 0%, rgba(255,139,15,1) 27%, rgba(255,243,13,1) 71%, rgba(255,255,255,1) 88%, rgba(38,179,13,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,20,51,1) 0%, rgba(255,139,15,1) 27%, rgba(255,243,13,1) 71%, rgba(255,255,255,1) 88%, rgba(38,179,13,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,20,51,1) 0%, rgba(255,139,15,1) 27%, rgba(255,243,13,1) 71%, rgba(255,255,255,1) 88%, rgba(38,179,13,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1433', endColorstr='#26b30d', GradientType=0 );
+    &:after {
+      content: '';
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 10px;
+      height:20px;
+      background:$audio-black;
+      animation: 1s move-up-1 infinite linear;
+      animation-direction:normal;
+    }
+  }
+  .bar:nth-child(2):after {
+    animation: 1s move-up-2 infinite linear;
+  }
+  .bar:nth-child(3):after {
+    height: 10px;
+    animation: 2s move-up-3 infinite linear;
+  }
+  .bar:nth-child(5):after {
+    height: 40px;
+    animation: 3s move-up-3 infinite linear;
+  }
+}
+
+
+@keyframes move-up-1 {
+  50% {
+    height: 0px;
+  }
+}
+@keyframes move-up-2 {
+  0% {
+    height: 0px;
+  }
+  50% {
+    height: 10px;
+  }
+  100% {
+    height: 0px;
+  }
+}
+@keyframes move-up-3 {
+  0% {
+    height: 10px;
+  }
+  50% {
+    height: 40px;
+  }
+  75% {
+    height: 60px;
+  }
 }
