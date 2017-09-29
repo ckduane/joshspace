@@ -73,13 +73,18 @@ main
 			b #{@band.name} has 14214 friends.
 			.friends
 				- if has_friends?
-					- @band.friends.each do |friend|
+					- @ordered_friends.each do |friend|
 						.friend
 							h4.friend-name= friend.name
 							img[class="friend-img" src="#{friend.image}"]
+							- if user_signed_in? && is_josh?
+								= link_to "Edit", edit_band_friend_path(@band, friend)
+								= link_to "Delete", band_friend_path(@band, friend), :data => {:confirm => 'Are you sure you want to delete your friend?'}, :method => :delete
 				- else
 					.band-friend
 						h4 Tom
 						img[class="friend-img" src="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/300x300.jpg"]
+				- if user_signed_in? && is_josh?
+					p.new-friend= link_to "New Friend", new_band_friend_path(@band)
 
 		= render 'comments/show'

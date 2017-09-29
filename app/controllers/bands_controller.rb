@@ -6,6 +6,7 @@ class BandsController < ApplicationController
     @commentable = @band
     @comments = @commentable.comments
     @comment = Comment.new
+    @ordered_friends = @band.friends.order(:order)
   end
 
   def edit
