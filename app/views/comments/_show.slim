@@ -10,7 +10,7 @@
             h4.friend-name= comment.username
             img[src="#{comment.image}" class='friend-img']
           td.secondary-light
-            - if user_signed_in? && is_josh?
+            - if user_signed_in? && is_masc?
               h4 = link_to "Edit", edit_band_comment_path(@band, comment)
               h4 = link_to "Delete", band_comment_path(@band, comment), :data => {:confirm => 'Are you sure you want to delete your comment?'}, :method => :delete
             p

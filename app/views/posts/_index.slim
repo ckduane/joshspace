@@ -6,11 +6,11 @@
         = post.title + " ("
         a[href=band_post_path(@band, post) class='blog-post-link'] view more
         span )
-        - if user_signed_in? && is_josh?
+        - if user_signed_in? && is_masc?
           = link_to 'Edit', edit_band_post_path(post, @band)
           = link_to 'Delete', band_post_path(post, @band), method: :delete, data: { confirm: 'Are you sure?' }
         br
   - else
     p There's nothing here yet
-  - if user_signed_in? && is_josh?
+  - if user_signed_in? && is_masc?
     = link_to 'New Post', new_band_post_path(@band)

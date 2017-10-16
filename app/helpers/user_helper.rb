@@ -1,5 +1,5 @@
 module UserHelper
-	  def is_josh?
-	  	current_user == User.find_by_email('hochman.josh@gmail.com')
+	  def is_masc?
+	  	current_user == User.find_by_email('masc4mascbandemail@gmail.com')
 	  end
 end
