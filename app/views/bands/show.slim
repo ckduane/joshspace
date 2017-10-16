@@ -14,17 +14,17 @@ main
 		table.primary.contact-info
 			h2.primary-dark Contacting #{@band.name}
 			tr
-				td= image_tag("contact/sendMail", title: "Send Message")
-				td= image_tag("contact/forwardFriend", title: "Forward to Friend")
+				td= link_to(image_tag("contact/sendMail", title: "Send Message"), 'mailto: masc4mascbandemail@gmail.com')
+				td= link_to(image_tag("contact/forwardFriend", title: "Forward to Friend"), 'mailto: masc4mascbandemail@gmail.com')
 			tr
-				td= image_tag("contact/addFriend", title: "Add to Friends")
-				td= image_tag("contact/addFavorites", title: "Add to Favorites")
+				td= link_to(image_tag("contact/addFriend", title: "Add to Friends"), 'mailto: masc4mascbandemail@gmail.com')
+				td= link_to(image_tag("contact/addFavorites", title: "Add to Favorites"), 'mailto: masc4mascbandemail@gmail.com')
 			tr
-				td= image_tag("contact/instantMessage", title: "Instant Message")
-				td= image_tag("contact/blockUser", title: "Block User")
+				td= link_to(image_tag("contact/instantMessage", title: "Instant Message"), 'mailto: masc4mascbandemail@gmail.com')
+				td= link_to(image_tag("contact/blockUser", title: "Block User"), 'mailto: masc4mascbandemail@gmail.com')
 			tr
-				td= image_tag("contact/addGroup", title: "Add to Group")
-				td= image_tag("contact/rankUser", title: "Rank User")
+				td= link_to(image_tag("contact/addGroup", title: "Add to Group"), 'mailto: masc4mascbandemail@gmail.com')
+				td= link_to(image_tag("contact/rankUser", title: "Rank User"), 'mailto: masc4mascbandemail@gmail.com')
 		table.primary.general-info
 			h2.primary-dark #{@band.name} General Info
 			tr
