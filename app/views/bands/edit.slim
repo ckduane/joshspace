@@ -1,6 +1,6 @@
 
 #band-edit-page
-  - if user_signed_in? && is_josh?
+  - if user_signed_in? && is_masc?
     = render 'form', band: @band
   - else
     p You must be a band member to view this page.
