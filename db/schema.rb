@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920040557) do
+ActiveRecord::Schema.define(version: 20171024022938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170920040557) do
     t.string   "css"
     t.string   "javascript"
     t.string   "cover_art"
+    t.string   "band_members"
   end
 
   create_table "comments", force: :cascade do |t|
