@@ -15,15 +15,6 @@
   background: linear-gradient(white, $gray, white);
   padding: 0.5rem;
   position: relative;
-  // &::before {
-  //   position: absolute;
-  //   content: image-url('audio/dancing-volume.jpg');
-  //   display: block;
-  //   height: 100%;
-  //   width: 100%;
-  //   top: 2.5rem;
-  //   left: 36rem;
-  // }
 }
 .playing-container {
   background: $audio-black;
@@ -77,6 +68,28 @@
     background-color: rgb(209, 209, 209);
     padding: 1rem;
   }
+  .playlist-additions {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0.5rem 0;
+  }
+  .white-logo {
+    height: 4rem;
+  }
+  .stand-alone {
+    background: $gray;
+    background: -webkit-linear-gradient(white, $gray, white);
+    background: -o-linear-gradient(white, $gray, white);
+    background: -moz-linear-gradient(white, $gray, white);
+    background: linear-gradient(white, $gray, white);
+    border: 1px solid gray;
+    border-radius: 8px;
+    display: inline-block;
+    height: 1.75rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+  }
 }
 #plList {
   margin: 0;
@@ -87,7 +100,7 @@
     text-decoration: underline;
     cursor: pointer;
     border-bottom: 1px dashed gray;
-    &:last-child {
+    &:last-of-type {
       border-bottom: none;
     }
   }

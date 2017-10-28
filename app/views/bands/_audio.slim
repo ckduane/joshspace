@@ -42,6 +42,9 @@
       .cover-art
         img[src="#{@band.cover_art}"]
       ul#plList
+        .playlist-additions
+          = image_tag("logo/masc4masclogo2.png", class: "white-logo")
+          .stand-alone STANDALONEPLAYER
 
   ul#songData
     - @songs.links.each do |song|

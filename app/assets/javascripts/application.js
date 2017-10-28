@@ -33,7 +33,7 @@ jQuery(function ($) {
                 } else {
                     trackNumber = '' + trackNumber;
                 }
-                $('#plList').append('<li><div class="plItem"><div class="plTitle">' + trackName + '</div></div></li>');
+                $('#plList').prepend('<li><div class="plItem"><div class="plTitle">' + trackName + '</div></div></li>');
             }),
             trackCount = tracks.length,
             npAction = $('#npAction'),
