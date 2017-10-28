@@ -19,21 +19,28 @@
     <div class="page-container">
       <header >
         <ul>
-          <li>Joshspace.com</li>
+          <li>masc4masc</li>
           <li> | </li>
           <li>Home</li>
         </ul>
 
         <form action="">
           <input type="radio" name="butts" value="are so squishy"> The Web
-          <input type="radio" name="gender" value="weird"> JoshSpace
+          <input type="radio" name="gender" value="weird"> masc4masc
           <input type="text"> <button>Search</button>
         </form>
 
-        <ul>
-          <li>Help</li>
-          <li> | </li>
-          <li>SignUp</li>
+        <ul class="user-actions">
+          <% if !user_signed_in? %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Register", new_user_registration_path %></li>
+          <% else %>
+          <% if user_signed_in? && is_masc? %>
+            <li><%= link_to "Edit Profile", edit_band_path(@band) %></li>
+          <% end %>
+          <li><%=current_user.email%></li>
+          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+        <% end %>
         </ul>
       </header>
       <ul class="navlinks">
@@ -45,20 +52,9 @@
       <nav class="top-nav">
         <ul>
           <%= image_tag("logo/masc4masclogomaroon.png", class: "logo") %>
-          <% topnavlinks = ['Directory', 'Search', 'Top Artists', 'Shows', 'Features', 'Music Forums', 'Music' 'Classifieds', 'Artist Signup']%>
+          <% topnavlinks = ['Directory', 'Search', 'Top Artists', 'Shows', 'Features', 'Music Forums', 'Music', 'Classifieds', 'Artist Signup']%>
           <% topnavlinks.each do |link| %>
             <li><%=link%></li>
-          <% end %>
-          
-          <% if !user_signed_in? %>
-            <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "Register", new_user_registration_path %></li>
-          <% else %>
-            <% if user_signed_in? && is_masc? %>
-              <li><%= link_to "Edit Profile", edit_band_path(@band) %></li>
-            <% end %>
-            <li><%=current_user.email%></li>
-            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
           <% end %>
         </ul>
       </nav>
