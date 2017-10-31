@@ -7,22 +7,40 @@
     list-style: none;
     background-color: $red;
     text-align: right;
-    padding: 0;
+    height: 4rem;
+    padding: 0 20px;
     margin: 0;
+    img {
+      margin: 0 10px; 
+    }
   }
   li {
+    color: white;
     line-height: 20px;
     height: 20px;
     text-align: center;
-    width: 100px;
     border-bottom: none;
     display: inline-block;
+    padding: 8px 0;
+    &:hover {
+      cursor: pointer;
+    }
+    &:before {
+      content: "|";
+      padding: 3px;
+    }
+    &:first-of-type:before {
+      content: "";
+    }
   }
   a {
-    display: block;
+    color: white;
     &:hover {
       background-color: transparent;
     }
+  }
+  .logo {
+    float: left;
   }
 }
 header {
@@ -31,6 +49,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  
   ul {
     display: inline-block;
     margin: 0;
@@ -42,6 +61,22 @@ header {
   }
   input[type='text'] {
     padding: 0;
+  }
+  .user-actions {
+    padding: 0;
+    li {
+      &:before {
+        content: "|";
+        padding: 0 0.3rem;
+      }
+      &:first-child:before {
+        content: "";
+      }
+    }
+    a {
+      color: white;
+      font-weight: 500;
+    }
   }
 }
 .navlinks {
