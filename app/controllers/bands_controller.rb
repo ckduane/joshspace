@@ -2,7 +2,7 @@ class BandsController < ApplicationController
   before_action :find_band, except: :create
 
   def show
-    @songs = get_list(path = "/Test")
+    @songs = get_list(path = "/dawsonscreamo")
     @commentable = @band
     @comments = @commentable.comments
     @comment = Comment.new
