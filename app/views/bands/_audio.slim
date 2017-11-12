@@ -47,6 +47,7 @@
           .stand-alone STANDALONEPLAYER
 
   ul#songData
+    = @songs
     - @songs.links.each do |song|
       li[data-song-name=song.name data-song-url=song.url.sub!('dropbox.com', 'dl.dropboxusercontent.com')]
   ul#plList
