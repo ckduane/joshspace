@@ -21,7 +21,7 @@
             = image_tag("audio/volume-indicator", id: "volume-indicator")
       .audiowrap
         .playing-container
-          #npTitle
+          marquee[behavior='alternate' scrollamount='2' id='npTitle']
           .band-name= @band.name.upcase
           #npAction
             span paused
