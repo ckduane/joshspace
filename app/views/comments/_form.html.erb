@@ -24,6 +24,10 @@
     <%= f.text_area :body, rows: 5, placeholder: "Write your comment here" %>
   </div>
 
+  <div>
+    <%= recaptcha_tags %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Save" %>
   </div>
