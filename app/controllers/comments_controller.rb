@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :find_comment, only: [:edit, :update, :destroy ]
   before_action :find_band, except: :create
+
   def index
     @comments = @commentable.comments
   end
@@ -19,6 +20,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comment_params)
+
+    unless verify_recaptcha?(params[:recaptcha_token], 'order')
+      flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again later."
+      return render :new
+    else
+      
+    end
+
     if @comment.save
       redirect_to @commentable, notice: 'Comment created'
     else
