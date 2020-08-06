@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
 
-    unless verify_recaptcha?(params[:recaptcha_token], 'order')
+    unless verify_recaptcha?(params[:recaptcha_token], 'comment')
       flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again later."
       return render :new
     else
