@@ -19,10 +19,15 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comment_params)
-    if @comment.save
-      redirect_to @commentable, notice: 'Comment created'
-    else
-      render :new
+
+    respond_to do |format|
+      if verify_recaptcha(model: @comment) && @comment.save
+        format.html { redirect_to @commentable, notice: 'Comment created' }
+        format.json { render: show, status: :created, location: @comment }
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -47,20 +52,21 @@ class CommentsController < ApplicationController
   end
 
   private
-    def load_commentable
-      resource, id = request.path.split('/')[1,2]
-      @commentable = resource.singularize.classify.constantize.find(id)
-    end
 
-    def comment_params
-      params.require(:comment).permit(:body, :username, :image, :commentable_type, :commentable_id)
-    end
+  def load_commentable
+    resource, id = request.path.split('/')[1,2]
+    @commentable = resource.singularize.classify.constantize.find(id)
+  end
 
-    def find_band
-      @band = Band.find_by(id: params[:band_id])
-    end
+  def comment_params
+    params.require(:comment).permit(:body, :username, :image, :commentable_type, :commentable_id)
+  end
 
-    def find_comment
-      @comment = Comment.find_by(id: params[:id])
-    end
+  def find_band
+    @band = Band.find_by(id: params[:band_id])
+  end
+
+  def find_comment
+    @comment = Comment.find_by(id: params[:id])
+  end
 end
